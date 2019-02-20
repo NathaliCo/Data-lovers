@@ -1,18 +1,93 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    <script src="data.js"></script>
-    <script src="main.js"></script>
+      <!DOCTYPE html>
+      <html lang="es">
+        <head>
+          <meta charset="utf-8">
+          <title>Data Lovers</title>
+          <link rel="stylesheet" href="style.css" />
+        </head>      
+        <body>
+        <nav id="menu">  
+            <ul>
+            <li><a href="#">Menú</a>          
+            <ul>
+            <li id="list"><a href="#">lista</a></li>
+            <li id="types"><a href="#">Tipos</a></li>
+            <li id="estadistics"><a href="#">Estadísticas</a></li>
+            </ul>
+            </ul>
+            </nav>           
+          <button id="search" >Buscar</button>
+          <input id="searchPokemon" placeholder="Buscar" autocomplete="on"/>
+          <div id="pokemonOfTheDay">
+            <table>
+              <tbody>
+              <tr>
+                <th id="titleTable" colspan="2"></th>
+              </tr>
+              <tr>
+                <th id= "name"></th>
+                <th id ="características"></th>
+              </tr>
+              <tr>
+                <th rowspan="5" ><img id = "picture" src="" alt="Pokémon" ></th>
+                <th></th>
+              </tr> 
+              <tr>
+                <th id = "type"></th>
+              </tr>
+              <tr>
+                <th id = "weaknesses"></th>
+              </tr>
+              <tr>
+                <th id = "next_evolution"></th>
+              </tr> 
+              <tr>
+                  <th id = "prev_evolution"></th>
+                </tr> 
+          </tbody>
+            </table>
+            <button id = "random"> Conocer a otro pokémon </button> 
+            <button id = "more">Conocer más</button>
+          </div>
+          
+          <div id="pokemonTypes">
+            <button id = "fire"> Fuego </button>
+            <button id = "water">Agua </button>
+            <button id = "poison">Veneno </button>
+            <button id = "normal">Normal</button>
+            <button id = "grass"> Planta </button>
+            <button id = "electric">Eléctrico </button>
+            <button id = "ice">Hielo </button>
+            <button id = "fighting">Peleador</button>
+            <button id = "ground">Tierra</button>
+            <button id = "flying">Volador </button>
+            <button id = "psychic">Psíquico</button>
+            <button id = "bug"> Insecto </button>
+            <button id = "rock"> Roca </button>
+            <button id = "dragon">Dragon </button>
+            <button id = "ghost">Fantasma</button>
+          </div>
+          <div id="pokemonList">
+              <select id="listFor">
+                  <option value="name">Alfabéticamente</option> 
+                  <option value="id">Por id</option> 
+               </select>
+               <select id="listOrder">
+                  <option value="ascendente">Ascendente</option> 
+                  <option value="descendente">Descendente</option> 
+               </select>
+               <button id="filterSearch">Buscar</button>
+
+          </div>
+            
+            <p id="results"></p>
+          <div id="root"></div>
+          <!-- <script src="./data/injuries/injuries.js"></script> -->
+           <script src="./data/pokemon/pokemon.js"></script> 
+          <!-- <script src="./data/steam/steam.js"></script> -->
+          <!-- <script src="./data/worldbank/worldbank.js"></script> -->
+          <!-- <script src="./data/lol/lol.js"></script> -->
+          <script src="data.js"></script>
+          <script src="main.js"></script>
   </body>
 </html>

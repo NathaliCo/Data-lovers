@@ -1,12 +1,10 @@
 require('../src/data.js');
+const POKEMON = require(".../src/data/pokemon/pokemon.json");
 
-
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
-  });
-
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+describe("fitrar", ()=>{
+  it ("filtra por nombre", ()=>{
+    expect(dataLovers.findPokemon(POKEMON, "Pikachu")).toBe(25);
   });
 });
+
+
