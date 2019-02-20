@@ -29,7 +29,6 @@ findPokemon: function (data,condition){
     elemento.name, elemento.type, elemento.weaknesses)));
     },
 
-
 sortData: function (data, sortBy, sortOrder){
   if (sortOrder==="ascendente"){
   data.sort(function(ob1,ob2){

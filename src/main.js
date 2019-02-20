@@ -50,6 +50,7 @@ document.getElementById("search").addEventListener("click", searchButton);
   document.getElementById("picture").src = pokemon.img;
   document.getElementById("type").innerHTML = "Tipo: " + pokemon.type;
   document.getElementById("weaknesses").innerHTML = "Debilidades: " + pokemon.weaknesses;
+  document.getElementById("spawn_time").innerHTML = "Tiempo: " + pokemon.spawn_time;
   //Si tiene next_evolution o prev_evolution lo imprime, si no, los deja en blanco
   if (pokemon.next_evolution!== undefined){       
        if (pokemon.next_evolution.length===1){
@@ -67,8 +68,8 @@ document.getElementById("search").addEventListener("click", searchButton);
      }
  }
 }    
-/*
-function list(){
+
+/*function list(){
   const data=POKEMON.pokemon;
   console.log ("doneInit");
   document.getElementById("pokemonOfTheDay").style.display="none";
@@ -110,8 +111,8 @@ function list(){
    }
       document.write("</table>");
   }
-}*/
-
+}
+*/
 
 //dataLovers.sortData(POKEMON.pokemon, "name", "ascendente");
 
@@ -144,8 +145,34 @@ function menuList(){
   document.getElementById("pokemonList").style.display="block";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonTypes").style.display="none";
+  
 }
 document.getElementById("list").addEventListener("click", menuList);
 
 document.getElementById("filterSearch").addEventListener("click", function(){dataLovers.sortData(POKEMON.pokemon, document.getElementById("listFor").value, document.getElementById("listOrder").value)});
 
+function tabla(data){
+  for (i=0; i<data.length; i++){
+  var parrafo = document.getElementById("results");
+  var tabla = document.createElement("tabla");
+  var tblBody = document.createElement("tbody");
+    for (j=0; j<=2; j++){
+  var hilera= document.createElement("tr");
+      for (k=0; k<=1; k++){
+  var celda= document.createElement("td");
+  var imgPoke= document.createElement("img");
+ // var pokePicture= data[i].img;
+   //imgPoke.setAttribute("src", pokePicture);
+   var textoCelda= document.createTextNode(data[i].name);
+      }
+    }
+  celda.appendChild(textoCelda);
+  hilera.appendChild(celda);
+  tblBody.appendChild(hilera);
+  tabla.appendChild(tblBody);
+  parrafo.appendChild(tabla);
+  parrafo.appendChild(document.createElement("br"));
+  }
+  
+}
+tabla(POKEMON.pokemon);
