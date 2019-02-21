@@ -22,7 +22,8 @@ function pokemonName (data){
 
 //Función para generar random
 let random= function (data){
-  return Math.floor(((Math.random()*data.length)+1));
+   randomId= Math.floor(((Math.random()*data.length)+1));
+   return randomId;
 };
 
 
@@ -63,59 +64,24 @@ document.getElementById("search").addEventListener("click", searchButton);
       if (pokemon.prev_evolution.length===1){
       document.getElementById("prev_evolution").innerHTML = "Evolución de: " + pokemon.prev_evolution[0].name;
      }else{
-      document.getElementById("prev_evolution").innerHTML ="Evolución de: " + pokemon.prev_evolution[0].name + ", " + pokemon.prev_evolution[1].name;
-         
+      document.getElementById("prev_evolution").innerHTML ="Evolución de: " + pokemon.prev_evolution[0].name + ", " + pokemon.prev_evolution[1].name;     
      }
  }
 }    
-
-/*function list(){
-  const data=POKEMON.pokemon;
-  console.log ("doneInit");
-  document.getElementById("pokemonOfTheDay").style.display="none";
-  document.getElementById("menu").style.display="block";
- for (i=0; i < data.length; i++){
-  console.log ("doneFor");
-  let pokemon = data[i];
-  var table = document.createElement(table);
-  document.getElementById("pokemonList").appendChild=table;
-
-  document.write("<br>");
-    for (let [key, value] of Object.entries(pokemon)) {
-      
-      if (value!==null&&value!=="N/A"&&value!=="Not in Eggs"&& value!==0){
-        if (key==="name"){
-        }
-        if (key==="img"){
-          document.write("<tr>");
-          document.write("<th>");
-          document.write (value);
-          document.write("</th>");
-          document.write("</tr>");
-        }else if (key==="prev_evolution" || key==="next_evolution"){
-        for (j=0; j<value.length; j++){
-          document.write("<tr>");
-          document.write("<th>")
-          document.write (value[j].name);
-          document.write("</th>")
-          document.write("</tr>");
-        }       
-        }else{
-        document.write("<tr>");
-        document.write("<th>");
-        document.write (value);
-        document.write("</th>");
-        document.write("</tr>");
-        }
-      }
-   }
-      document.write("</table>");
-  }
+function printAll(pokemon){
+dataLovers.findPokemonRandom(POKEMON.pokemon, random);
+  printFirstData(pokemon);
+  document.getElementById("height").innerHTML= "Altura" + pokemon.height;
+  document.getElementById("weight").innerHTML="Peso" + pokemon.weight;
+  document.getElementById("candy").innerHTML = "Dulce" + pokemon.candy;
+  document.getElementById("candy_count").innerHTML ="Número de dulces" + pokemon.candy_count;
+  document.getElementById("egg").innerHTML = "Huevos: " + pokemon.egg;
+  document.getElementById("spawn_chance").innerHTML = "Spawn_chance: " + pokemon.spawn_chance;
+  document.getElementById("avg_spawns").innerHTML = "Avg_spawns: " + pokemon.avg_spawn;
+  document.getElementById("multipliers").innerHTML = "Multipliers: " + pokemon.multipliers;
 }
-*/
 
-//dataLovers.sortData(POKEMON.pokemon, "name", "ascendente");
-
+document.getElementById("more").addEventListener("click", printAll);
 
 function menuTypes(){
   document.getElementById("pokemonTypes").style.display="block";
@@ -145,28 +111,33 @@ function menuList(){
   document.getElementById("pokemonList").style.display="block";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonTypes").style.display="none";
+  tabla(POKEMON.pokemon);
   
 }
 document.getElementById("list").addEventListener("click", menuList);
 
-document.getElementById("filterSearch").addEventListener("click", function(){dataLovers.sortData(POKEMON.pokemon, document.getElementById("listFor").value, document.getElementById("listOrder").value)});
+document.getElementById("filterSearch").addEventListener("click", function(){dataLovers.sortData(POKEMON.pokemon, document.getElementById("listFor").value, document.getElementById("listOrder").value);});
 
 function tabla(data){
-  for (i=0; i<data.length; i++){
   var parrafo = document.getElementById("results");
-  var tabla = document.createElement("tabla");
+  parrafo.innerHTML=" ";
+    for (let i=0; i<data.length; i++){
+  var tabla = document.createElement("table");
   var tblBody = document.createElement("tbody");
-    for (j=0; j<=2; j++){
+    for (let j=0; j<=3; j++){
   var hilera= document.createElement("tr");
-      for (k=0; k<=1; k++){
+      for (let k=0; k<=1; k++){
   var celda= document.createElement("td");
-  var imgPoke= document.createElement("img");
- // var pokePicture= data[i].img;
-   //imgPoke.setAttribute("src", pokePicture);
+   var textId=document.createTextNode(data[i].id + " ");
    var textoCelda= document.createTextNode(data[i].name);
+   var img=document.createElement("img");
+
+    img.src=data[i].img;
       }
     }
+  celda.appendChild(textId);
   celda.appendChild(textoCelda);
+  celda.appendChild(img);
   hilera.appendChild(celda);
   tblBody.appendChild(hilera);
   tabla.appendChild(tblBody);
@@ -175,4 +146,3 @@ function tabla(data){
   }
   
 }
-tabla(POKEMON.pokemon);
