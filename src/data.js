@@ -22,7 +22,7 @@ findPokemon: function (data,condition){
   for (let i=0; i<data.length; i++){
       let pokemon =data[i];
       if (pokemon.name==condition){       
-          printFistData(pokemon);
+        printAll(pokemon);
           return pokemon.id;
       }
   }
@@ -46,7 +46,7 @@ sortData: function (data, sortBy, sortOrder){
   return 0;
   });
   pokemonOrder.forEach(elemento=>(tabla(pokemonOrder)));
-
+  
   }else if(sortOrder==="descendente"){
     pokemonOrder=data.sort(function(ob1,ob2){
       if (ob1[sortBy]<ob2[sortBy]){
@@ -56,8 +56,15 @@ sortData: function (data, sortBy, sortOrder){
       }
     return 0;
     });
-    pokemonOrder.forEach(elemento=>(tabla(pokemonOrder)));
+    pokemonOrder.forEach(pokemon=>(tabla(pokemonOrder)));
   }
-  }
+  },
 
+computeStats: function(data, condition){
+  let filterData=[];
+  data.forEach(pokemon=>((filterData.push (pokemon[condition]))));
+  let average = filterData.reduce(function(a, b){ return a + b; });
+  average=average/filterData.length;
+  document.getElementById("results").innerHTML=average;
+   }
 };

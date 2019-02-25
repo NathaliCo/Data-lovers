@@ -3,12 +3,21 @@
 window.onload= function init (){
     document.getElementById("pokemonOfTheDay").style.display="block";
     dataLovers.findPokemonRandom(POKEMON.pokemon, random(POKEMON.pokemon));
+    document.getElementById("open-hide").addEventListener( 'click' , changeClass ); 
   };
 
+  function changeClass()
+  {
+   document.getElementById("open-hide").classList.toggle('show');
+  }
+  
+ 
 
 //Bloqueo de pantallas que van a ser llamadas con el Ménu
 document.getElementById("pokemonList").style.display="none";
 document.getElementById("pokemonTypes").style.display="none";
+document.getElementById("statisticsList").style.display="none";
+
 
 //Crea un array con los nombres de los pokemones
 function pokemonName (data){
@@ -36,10 +45,13 @@ document.getElementById("random").addEventListener("click", showPokemon);
 
 //Función del boton de buscar
 function searchButton(){
-//const filter = document.getElementById("searchPokemon");
-console.log (document.getElementById("searchPokemon").value);
+//const filter = document.getElementById("searchPokemon")
 dataLovers.findPokemon(POKEMON.pokemon, document.getElementById("searchPokemon").value);
 document.getElementById("searchPokemon").value = "";
+document.getElementById("pokemonOfTheDay").style.display="block";
+document.getElementById("pokemonList").style.display="none";
+document.getElementById("pokemonTypes").style.display="none";
+document.getElementById("statisticsList").style.display="none";
 }
 document.getElementById("search").addEventListener("click", searchButton);
 
@@ -71,22 +83,26 @@ document.getElementById("search").addEventListener("click", searchButton);
 function printAll(pokemon){
 dataLovers.findPokemonRandom(POKEMON.pokemon, random);
   printFirstData(pokemon);
-  document.getElementById("height").innerHTML= "Altura" + pokemon.height;
-  document.getElementById("weight").innerHTML="Peso" + pokemon.weight;
-  document.getElementById("candy").innerHTML = "Dulce" + pokemon.candy;
-  document.getElementById("candy_count").innerHTML ="Número de dulces" + pokemon.candy_count;
+  document.getElementById("height").innerHTML= "Altura: " + pokemon.height;
+  document.getElementById("weight").innerHTML="Peso: " + pokemon.weight;
+  document.getElementById("candy").innerHTML = "Dulce: " + pokemon.candy;
+  document.getElementById("candy_count").innerHTML ="Número de dulces: " + pokemon.candy_count;
   document.getElementById("egg").innerHTML = "Huevos: " + pokemon.egg;
   document.getElementById("spawn_chance").innerHTML = "Spawn_chance: " + pokemon.spawn_chance;
   document.getElementById("avg_spawns").innerHTML = "Avg_spawns: " + pokemon.avg_spawn;
   document.getElementById("multipliers").innerHTML = "Multipliers: " + pokemon.multipliers;
+  document.getElementById("more").style.display= "none";
+  document.getElementById("random").style.display= "none";
 }
 
 document.getElementById("more").addEventListener("click", printAll);
 
 function menuTypes(){
+  document.getElementById("results").innerHTML=" ";
   document.getElementById("pokemonTypes").style.display="block";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonList").style.display="none";
+  document.getElementById("statisticsList").style.display="none";
 }
 
 document.getElementById("types").addEventListener("click", menuTypes);
@@ -108,9 +124,11 @@ document.getElementById("dragon").addEventListener("click", function(){dataLover
 document.getElementById("ghost").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Ghost");});
 
 function menuList(){
+  document.getElementById("results").innerHTML=" ";
   document.getElementById("pokemonList").style.display="block";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonTypes").style.display="none";
+  document.getElementById("statisticsList").style.display="none";
   tabla(POKEMON.pokemon);
   
 }
@@ -119,30 +137,37 @@ document.getElementById("list").addEventListener("click", menuList);
 document.getElementById("filterSearch").addEventListener("click", function(){dataLovers.sortData(POKEMON.pokemon, document.getElementById("listFor").value, document.getElementById("listOrder").value);});
 
 function tabla(data){
-  var parrafo = document.getElementById("results");
-  parrafo.innerHTML=" ";
+  const paragraph= document.getElementById("results");
+  paragraph.innerHTML=" ";
     for (let i=0; i<data.length; i++){
-  var tabla = document.createElement("table");
-  var tblBody = document.createElement("tbody");
-    for (let j=0; j<=3; j++){
-  var hilera= document.createElement("tr");
-      for (let k=0; k<=1; k++){
-  var celda= document.createElement("td");
-   var textId=document.createTextNode(data[i].id + " ");
-   var textoCelda= document.createTextNode(data[i].name);
-   var img=document.createElement("img");
-
-    img.src=data[i].img;
-      }
+      const span=document.createElement("span");
+      const label = document.createElement("label");
+      const image = document.createElement ("img");
+      const id =document.createTextNode (data[i].id+ " ");
+      const name = document.createTextNode (data[i]. name);
+      label.appendChild(id);
+      label.appendChild(name);
+      span.appendChild(label);
+      paragraph.appendChild(span);
+      image.src= data[i].img;
+      span.appendChild(image);
+      paragraph.appendChild(span);
     }
-  celda.appendChild(textId);
-  celda.appendChild(textoCelda);
-  celda.appendChild(img);
-  hilera.appendChild(celda);
-  tblBody.appendChild(hilera);
-  tabla.appendChild(tblBody);
-  parrafo.appendChild(tabla);
-  parrafo.appendChild(document.createElement("br"));
   }
   
+function start() {
+  location.reload();
 }
+
+document.getElementById("start").addEventListener("click", start);
+function statistics(){
+  document.getElementById("results").innerHTML=" ";
+  document.getElementById("pokemonList").style.display="none";
+  document.getElementById("pokemonOfTheDay").style.display="none";
+  document.getElementById("pokemonTypes").style.display="none";
+  document.getElementById("statisticsList").style.display="none";
+  document.getElementById("statisticsList").style.display="block";
+}
+document.getElementById("statistics").addEventListener("click", statistics);
+document.getElementById("statisticSearch").addEventListener("click", function(){dataLovers.computeStats(POKEMON.pokemon, document.getElementById("statisticsOptions").value);});
+
