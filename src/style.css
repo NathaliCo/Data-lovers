@@ -10,29 +10,34 @@
     position: relative;
  }
 
-#menus{
-padding: 60px;
-} 
+ #menu{
+   position: fixed;
+	left: 0; 
+	top: 200px; 
+	z-index: 2000; 
+}
+
 #menu ul {
+   list-style: none;
     
-    list-style:none;
+   /* list-style:none;
     float: left;
-    position: absolute;
-    left: 2rem;
-    top: 1rem;
-    width: 400px;
+    position: fixed;
+    top: 6rem;
+    width: 300px;
+*/
    }
  
   #menu ul li {
 background-color: black;
-position:relative;
+position: relative;;
     float:left;
     margin:0;
     padding:1rem;
    }
  
-   #menu ul a {
-    display:block;
+   #menu ul li a {
+    display:inline-block;
     color:#fff;
     text-decoration:none;
     font-weight:400;
@@ -43,12 +48,12 @@ position:relative;
     letter-spacing:1px;
    }
    
- 
+ *
    #menu ul li:hover {
     background-color: #434343;
    }
 
- #menu ul ul {
+ /*#menu ul ul {
  display:none;
  position:absolute;
  top:100%;
@@ -56,27 +61,27 @@ position:relative;
 
  padding:0;
 }
+*/
 
 #menu ul ul li {
  float:none;
  width:150px
 }
-
+/*
 #menu ul ul a {
  line-height:120%;
  padding:10px 15px;
 }
-
-#menu ul li:hover > ul {
+*/
+/*#menu ul li:hover > ul {
  display:block;
-}
+}*/
 
 #searchSection{
    position: absolute;
    top: 1rem;
    right: 1rem;
 }
-
 
 .container{
    position: relative;
@@ -85,6 +90,8 @@ position:relative;
 
 #search{
    max-height: 2rem;
+   position: relative;
+   right: 6rem;
 }
 
 #name{
@@ -95,14 +102,6 @@ font-size: 2rem;
    width:180px;
    height:180px;
    } 
-
-   .grid {
-      display: grid;
-      grid-template-columns: repeat( auto-fit, minmax( 20rem, 1fr ) );
-      grid-auto-rows: max-content;
-      grid-gap: 1rem;
-      justify-content: center;
-    }
 
  footer{
    background: #304F63;
@@ -115,3 +114,15 @@ font-size: 2rem;
    margin-top: 50rem;
    
  }
+
+
+
+
+
+
+
+
+
+
+ 
+
