@@ -1,18 +1,15 @@
-window.POKEMOn = {
-  getAllPokemon: () => {
-    return window.POKEMON.pokemon;
-  }
-};
 
+ 
 
 window.dataLovers={
+ 
+
  //función para encontrar al pokemon random
  findPokemonRandom: function  (data,condition){  
   for (let i=0; i<data.length; i++){
       let pokemon =data[i];
       if (pokemon.id==condition){       
-          printFirstData(pokemon);
-          return pokemon.name;
+          return pokemon;
       }
   }
 },
@@ -21,18 +18,20 @@ window.dataLovers={
 findPokemon: function (data,condition){  
   for (let i=0; i<data.length; i++){
       let pokemon =data[i];
-      if (pokemon.name==condition){       
-        printAll(pokemon);
-          return pokemon.id;
+      if (pokemon.name==condition){  
+        console.log(pokemon);     
+        return pokemon;
       }
   }
 },
 
 //Función para filtrar por tipo de pokemón
-  filterType:function  (data, condition){
-    const filterProperties = data.filter(pokemon => (pokemon.type[0] == condition || pokemon.type[1] == condition));
-    filterProperties.forEach(elemento=>(tabla(filterProperties)));
-    },
+filterType:function  (data, condition){
+  const filterProperties = data.filter(pokemon => (pokemon.type[0] == condition || pokemon.type[1] == condition));
+  console.log(filterProperties);
+  console.log(condition);
+  return filterProperties;
+  },
 
 sortData: function (data, sortBy, sortOrder){
   let pokemonOrder=[];
@@ -45,8 +44,7 @@ sortData: function (data, sortBy, sortOrder){
     }
   return 0;
   });
-  pokemonOrder.forEach(elemento=>(tabla(pokemonOrder)));
-  
+  return pokemonOrder;
   }else if(sortOrder==="descendente"){
     pokemonOrder=data.sort(function(ob1,ob2){
       if (ob1[sortBy]<ob2[sortBy]){
@@ -56,8 +54,10 @@ sortData: function (data, sortBy, sortOrder){
       }
     return 0;
     });
-    pokemonOrder.forEach(pokemon=>(tabla(pokemonOrder)));
+   
   }
+  console.log(pokemonOrder);
+  return pokemonOrder;
   },
 
 computeStats: function(data, condition){
@@ -66,5 +66,7 @@ computeStats: function(data, condition){
   let average = filterData.reduce(function(a, b){ return a + b; });
   average=average/filterData.length;
   document.getElementById("results").innerHTML=average;
-   }
+   },
+
+   
 };
