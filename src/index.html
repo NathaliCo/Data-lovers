@@ -6,51 +6,55 @@
           <link rel="stylesheet" href="style.css" />
         </head>      
         <body>
-        <nav id="menu">  
-            <ul>
-            <li><a href="#">Menú</a>          
+          <header id="menu">
+        
+            <ul >
+            <li id="menus"><a id="open-hide" class="open-hide" href="#">Menú</a>          
             <ul>
             <li id="list"><a href="#">lista</a></li>
             <li id="types"><a href="#">Tipos</a></li>
-            <li id="estadistics"><a href="#">Estadísticas</a></li>
+            <li id="statistics"><a href="#">Estadísticas</a></li>
+            <li id="start"><a href="#">Inicio</a></li>
             </ul>
             </ul>
-            </nav>           
-          <button id="search" >Buscar</button>
-          <input id="searchPokemon" placeholder="Buscar" autocomplete="on"/>
-          <div id="pokemonOfTheDay">
-            <table>
-              <tbody>
-              <tr>
-                <th id="titleTable" colspan="2"></th>
-              </tr>
-              <tr>
-                <th id= "name"></th>
-                <th id ="características"></th>
-              </tr>
-              <tr>
-                <th rowspan="5" ><img id = "picture" src="" alt="Pokémon" ></th>
-                <th></th>
-              </tr> 
-              <tr>
-                <th id = "type"></th>
-              </tr>
-              <tr>
-                <th id = "weaknesses"></th>
-              </tr>
-              <tr>
-                <th id = "next_evolution"></th>
-              </tr> 
-              <tr>
-                  <th id = "prev_evolution"></th>
-                </tr> 
-          </tbody>
-            </table>
+          <section id= "searchSection"> 
+            <div class="container">             
+            <img src="https://image.flaticon.com/icons/svg/164/164995.svg" id="search">
+            </div>
+            <input id="searchPokemon" placeholder="Buscar" autocomplete="on"/>
+          </section>
+        </header>
+          
+          <section id="pokemonOfTheDay">
+                <div id="infoTable">
+                    <div id="pictureName">
+                      <span><img class= "picture" id = "picture" src="" alt="Pokémon" ></span><br>
+                      <span id= "name"></span>
+                    </div>
+                    <div id="caracteristics">
+                      <span id = "type"></span><br>
+                      <span id = "weaknesses"></span><br>
+                      <span id = "spawn_time"></span><br>
+                      <span id = "next_evolution"></span><br>
+                      <span id = "prev_evolution"></span><br>
+                      <span id = "avg_spawns"></span><br>
+                      <span id = "spawn_chance"></span><br>
+                      <span id = "height"></span><br>
+                      <span id = "weight"></span><br>
+                      <span id = "candy"></span><br>
+                      <span id = "candy_count"></span><br>
+                      <span id = "egg"></span><br>
+                      <span id = "multipliers"></span><br>
+                      
+                          <button class="arrow-3"></div>
+                        
+                    </div>
+                  </div>
             <button id = "random"> Conocer a otro pokémon </button> 
             <button id = "more">Conocer más</button>
-          </div>
+          </section>
           
-          <div id="pokemonTypes">
+          <section id="pokemonTypes">
             <button id = "fire"> Fuego </button>
             <button id = "water">Agua </button>
             <button id = "poison">Veneno </button>
@@ -66,8 +70,8 @@
             <button id = "rock"> Roca </button>
             <button id = "dragon">Dragon </button>
             <button id = "ghost">Fantasma</button>
-          </div>
-          <div id="pokemonList">
+          </section>
+          <section class= "grid" id="pokemonList">
               <select id="listFor">
                   <option value="name">Alfabéticamente</option> 
                   <option value="id">Por id</option> 
@@ -77,10 +81,17 @@
                   <option value="descendente">Descendente</option> 
                </select>
                <button id="filterSearch">Buscar</button>
-
-          </div>
+              </section>
+            <section id="statisticsList">
+              <select id="statisticsOptions">
+                <option value="spawn_chance">Media de probabilidades de reproducción de la primera generación de pokemon</option> 
+             </select>
+             <button id="statisticSearch">Calcular</button>
+            </section>
+            <section class= "grid" id="results"></section>
             
-            <p id="results"></p>
+            <footer>&copy;Febrero 2019</footer>
+            <div style="overflow:hidden"> </div>
           <div id="root"></div>
           <!-- <script src="./data/injuries/injuries.js"></script> -->
            <script src="./data/pokemon/pokemon.js"></script> 
