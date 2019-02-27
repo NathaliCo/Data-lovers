@@ -1,11 +1,7 @@
-
- 
-
 window.dataLovers={
- 
 
- //función para encontrar al pokemon random
- findPokemonRandom: function  (data,condition){  
+//función para encontrar al pokemon random
+findPokemonRandom: function  (data,condition){  
   for (let i=0; i<data.length; i++){
       let pokemon =data[i];
       if (pokemon.id==condition){       
@@ -28,8 +24,6 @@ findPokemon: function (data,condition){
 //Función para filtrar por tipo de pokemón
 filterType:function  (data, condition){
   const filterProperties = data.filter(pokemon => (pokemon.type[0] == condition || pokemon.type[1] == condition));
-  console.log(filterProperties);
-  console.log(condition);
   return filterProperties;
   },
 
@@ -44,6 +38,7 @@ sortData: function (data, sortBy, sortOrder){
     }
   return 0;
   });
+  console.log(pokemonOrder);
   return pokemonOrder;
   }else if(sortOrder==="descendente"){
     pokemonOrder=data.sort(function(ob1,ob2){
@@ -65,8 +60,7 @@ computeStats: function(data, condition){
   data.forEach(pokemon=>((filterData.push (pokemon[condition]))));
   let average = filterData.reduce(function(a, b){ return a + b; });
   average=average/filterData.length;
-  document.getElementById("results").innerHTML=average;
-   },
-
+  return average;
+   }
    
 };

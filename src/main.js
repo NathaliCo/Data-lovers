@@ -4,8 +4,6 @@
   return randomId;
 };
 
-
-
 //manda llamar la función de generar pokemon random al momento de cargar la pantalla
 window.onload= function init (){
     document.getElementById("pokemonOfTheDay").style.display="block";
@@ -17,7 +15,6 @@ window.onload= function init (){
 document.getElementById("pokemonList").style.display="none";
 document.getElementById("pokemonTypes").style.display="none";
 document.getElementById("statisticsList").style.display="none";
-document.getElementById("filterType").style.display="none";
 
 //función del botón random que llama a generar un pokemón aleatorio
 function showPokemon(){
@@ -26,8 +23,6 @@ printAll(pokemon);
 }
 document.getElementById("random").addEventListener("click", showPokemon);
 
-//const buttons =document.getElementById("search");
-//buttons.innerHTML= '<img src = "https://image.flaticon.com/icons/svg/164/164995.svg"/>´;
 //Función del boton de buscar
 function searchButton(){
 let pokemon=dataLovers.findPokemon(POKEMON.pokemon, document.getElementById("searchPokemon").value);
@@ -67,6 +62,7 @@ document.getElementById("search").addEventListener("click", searchButton);
  }
 }    
 
+//Función para imprimir todas las características del pokemón en pantalla
 function printAll(pokemon){
 dataLovers.findPokemonRandom(POKEMON.pokemon, random);
   printFirstData(pokemon);
@@ -84,62 +80,40 @@ dataLovers.findPokemonRandom(POKEMON.pokemon, random);
 
 document.getElementById("more").addEventListener("click", printAll);
 
+//Función para mostrar la pantalla de botones de pokemon según su tipo
 function menuTypes(){
   document.getElementById("results").innerHTML=" ";
   document.getElementById("pokemonTypes").style.display="block";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonList").style.display="none";
   document.getElementById("statisticsList").style.display="none";
-  document.getElementById("filterType").style.display="block";
 }
 
 document.getElementById("types").addEventListener("click", menuTypes);
 
-function botonFilterType (){
-  let type = document.getElementById("pokemonTypes").value;
-  console.log (type);
-  let filterProperties= dataLovers.filterType (POKEMON.pokemon, type);
-  filterProperties.forEach(pokemon=>(table(filterProperties)));
+//función para buscar e imprimir en pantalla los pokemon por tipo
+let typeButtons= Array.from(document.getElementsByClassName("typeButton"));
+
+for(let i = 0; i < typeButtons.length ; i++) {
+  typeButtons[i].addEventListener("click",()=>{
+        let filterProperties=dataLovers.filterType(POKEMON.pokemon, typeButtons[i].getAttribute('id'));
+        table(filterProperties); 
+     });
 }
 
-document.getElementById("filterType").addEventListener("click", botonFilterType);
-
-/*
-document.getElementById("water").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Water");});
-document.getElementById("poison").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Poison");});
-document.getElementById("normal").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Normal");});
-document.getElementById("grass").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Grass");});
-document.getElementById("electric").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Electric");});
-document.getElementById("ice").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Ice");});
-document.getElementById("fighting").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Fighting");});
-document.getElementById("fire").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Fire");});
-document.getElementById("ground").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Ground");});
-document.getElementById("flying").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Flying");});
-document.getElementById("psychic").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Psychic");});
-document.getElementById("bug").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Bug");});
-document.getElementById("rock").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Rock");});
-document.getElementById("dragon").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Dragon");});
-document.getElementById("ghost").addEventListener("click", function(){dataLovers.filterType(POKEMON.pokemon, "Ghost");});
-*/
+//Función para mostrar la pantalla con la lista completa de pokemones
 function menuList(){
   document.getElementById("results").innerHTML=" ";
   document.getElementById("pokemonList").style.display="block";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonTypes").style.display="none";
   document.getElementById("statisticsList").style.display="none";
-  document.getElementById("filterType").style.display="none";
   table(POKEMON.pokemon);
   
 }
 document.getElementById("list").addEventListener("click", menuList);
 
-function filterSearch (){
-  let pokemonOrder= dataLovers.sortData(POKEMON.pokemon, document.getElementById("listFor").value, document.getElementById("listOrder").value);
-  pokemonOrder.forEach(pokemon=>(table(pokemonOrder)));  
-}
-
-document.getElementById("filterSearch").addEventListener("click", filterSearch);
-
+//Función para imprimir la lista de pokemones total y por tipo
 function table(data){
   const paragraph= document.getElementById("results");
   paragraph.innerHTML=" ";
@@ -158,21 +132,29 @@ function table(data){
       paragraph.appendChild(span);
     }
   }
-  
+//Función para ir a la pantalla de inicio  
 function start() {
   location.reload();
 }
 
 document.getElementById("start").addEventListener("click", start);
-function statistics(){
+
+//función para activar la pantalla de estadísticas
+function statisticsButton(){
   document.getElementById("results").innerHTML=" ";
   document.getElementById("pokemonList").style.display="none";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonTypes").style.display="none";
   document.getElementById("statisticsList").style.display="none";
   document.getElementById("statisticsList").style.display="block";
-  document.getElementById("filterType").style.display="none";
 }
-document.getElementById("statistics").addEventListener("click", statistics);
-document.getElementById("statisticSearch").addEventListener("click", function(){dataLovers.computeStats(POKEMON.pokemon, document.getElementById("statisticsOptions").value);});
+document.getElementById("statistics").addEventListener("click", statisticsButton);
+
+function statistics(){
+  const average=dataLovers.computeStats(POKEMON.pokemon, document.getElementById("statisticsOptions").value);
+  document.getElementById("results").innerHTML=average;
+  
+}
+
+document.getElementById("statisticSearch").addEventListener("click", statistics);
 
