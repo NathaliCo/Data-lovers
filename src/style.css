@@ -1,8 +1,9 @@
 *{
-   margin: 0;
-   padding: 0;
-   text-align: center;
- }
+margin: 0;
+padding: 0;
+text-align: center;
+
+}
 
  header{
     padding: 3rem;
@@ -10,72 +11,76 @@
     position: relative;
  }
 
- #menu{
-   position: fixed;
-	left: 0; 
-	top: 200px; 
-	z-index: 2000; 
+ /* -----------------------------------------------------------------------*/
+
+ /* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  list-style: none;
 }
 
-#menu ul {
-   list-style: none;
-    
-   /* list-style:none;
-    float: left;
-    position: fixed;
-    top: 6rem;
-    width: 300px;
-*/
-   }
- 
-  #menu ul li {
-background-color: black;
-position: relative;;
-    float:left;
-    margin:0;
-    padding:1rem;
-   }
- 
-   #menu ul li a {
-    display:inline-block;
-    color:#fff;
-    text-decoration:none;
-    font-weight:400;
-    font-size:15px;
-    padding:10px;
-    font-family: Arial;
-    text-transform:uppercase;
-    letter-spacing:1px;
-   }
-   
- *
-   #menu ul li:hover {
-    background-color: #434343;
-   }
-
- /*#menu ul ul {
- display:none;
- position:absolute;
- top:100%;
- left:0;
-
- padding:0;
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
 }
-*/
 
-#menu ul ul li {
- float:none;
- width:150px
+/* Active/current link */
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
 }
-/*
-#menu ul ul a {
- line-height:120%;
- padding:10px 15px;
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: blue;
+  color: white;
 }
-*/
-/*#menu ul li:hover > ul {
- display:block;
-}*/
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.pokeBox
+{
+  display: flex;
+  justify-content: center;
+
+
+
+}
+
+/* -----------------------------------------------------------------------*/
 
 #searchSection{
    position: absolute;
@@ -101,7 +106,19 @@ font-size: 2rem;
 #picture{
    width:180px;
    height:180px;
-   } 
+   }
+
+/* -----------------------------------------------------------------------*/
+/*GRID LIST*/
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+ /* -----------------------------------------------------------------------*/
 
  footer{
    background: #304F63;
@@ -112,17 +129,5 @@ font-size: 2rem;
    position:fixed;
    bottom:0px;
    margin-top: 50rem;
-   
+
  }
-
-
-
-
-
-
-
-
-
-
- 
-

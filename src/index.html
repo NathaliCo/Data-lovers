@@ -1,38 +1,40 @@
-      <!DOCTYPE html>
-      <html lang="es">
-        <head>
-          <meta charset="utf-8">
-          <title>Data Lovers</title>
-          <link rel="stylesheet" href="style.css" />
-        </head>      
+<!DOCTYPE html>
+  <html lang="es">
+    <head>
+      <meta charset="utf-8">
+      <title>Pokeguía</title>
+      <link rel="stylesheet" href="style.css" />
+    </head>
+
         <body>
+<!-- HEADER con un NAV que contiene el botón de búsqueda -->
           <header>
-              <section id= "searchSection"> 
-                  <div class="container">             
-                  <img id="search" src="https://image.flaticon.com/icons/svg/164/164995.svg" />
-                  </div>
+            <nav id= "searchSection">
+              <img id="search" src="https://image.flaticon.com/icons/svg/164/164995.svg"/>
+                <div class="container">
                   <input id="searchPokemon" placeholder="Buscar" autocomplete="on"/>
-                </section>
-            </header>
-            <aside id="menu">
+                </div>
+            </nav>
+          </header>
+<!-- SIDEBAR  -->
+            <div class="sidebar" id="menu">
             <ul>
-              
             <ul>
-              <li id="start"><a href="#">Inicio</a></li>    
-              <li id="list"><a href="#">lista</a></li>
+              <li id="start"><a href="#">Inicio</a></li>
+              <li id="list"><a href="#">Lista</a></li>
               <li id="types"><a href="#">Tipos</a></li>
               <li id="statistics"><a href="#">Estadísticas</a></li>
-            
             </ul>
             </ul>
-            </aside>
-        
-          
-          <section id="pokemonOfTheDay">
-                <div id="infoTable">
+          </div>
+<!-- MAIN página que muestra todas las pantallas -->
+          <main>
+
+              <div class="pokeBox" id="pokemonOfTheDay"> Pokemon of the day
+                <section id="infoTable">
                     <div id="pictureName">
-                      <span><img class= "picture" id = "picture" src="#" alt="Pokémon" ></span><br>
-                      <span id= "name"></span>
+                      <span><img class= "picture" id = "picture" src="#" alt="pokemon"></span><br>
+                      <span id="name"></span>
                     </div>
                     <div id="caracteristics">
                       <span id = "type"></span><br>
@@ -49,58 +51,59 @@
                       <span id = "egg"></span><br>
                       <span id = "multipliers"></span><br>
                     </div>
-                  
-            <button id = "random"> Conocer a otro pokémon </button> 
-            <button id = "more">Conocer más</button>
-          </section>
-          
-          <section >
-              <select id="pokemonTypes">
-                <option value = "Fire" > Fuego </option> 
-                <option value = "Water">Agua </option> 
-                <option value = "Poison">Veneno </option> 
-                <option value = "Normal">Normal</option> 
-                <option value = "Grass"> Planta </option> 
-                <option value = "Electric">Eléctrico </option> 
-                <option value = "Ice">Hielo </option> 
-                <option value = "Fighting">Peleador</option> 
-                <option value = "Ground">Tierra</option> 
-                <option value = "Flying">Volador </option> 
-                <option value = "Psychic">Psíquico</option> 
-                <option value = "Bug"> Insecto </option> 
-                <option value = "Rock"> Roca </option> 
-                <option value = "Dragon">Dragon </option> 
-                <option value = "Ghost">Fantasma </option>           
-             </select>
-             <button id="filterType">Buscar</button>
-            </section>
-          <section class= "grid" id="pokemonList">
+                      <button id ="random"> Conocer a otro pokémon </button>
+                      <button id ="more">Conocer más</button>
+                </section>
+              </div>
+<!-- PANTALLA tipos de pokémon -->
+              <section>
+                <select id="pokemonTypes">
+                  <option value = "Fire" > Fuego </option>
+                  <option value = "Water">Agua </option>
+                  <option value = "Poison">Veneno </option>
+                  <option value = "Normal">Normal</option>
+                  <option value = "Grass"> Planta </option>
+                  <option value = "Electric">Eléctrico </option>
+                  <option value = "Ice">Hielo </option>
+                  <option value = "Fighting">Peleador</option>
+                  <option value = "Ground">Tierra</option>
+                  <option value = "Flying">Volador </option>
+                  <option value = "Psychic">Psíquico</option>
+                  <option value = "Bug"> Insecto </option>
+                  <option value = "Rock"> Roca </option>
+                  <option value = "Dragon">Dragon </option>
+                  <option value = "Ghost">Fantasma </option>
+                </select>
+                  <button id="filterType">Buscar</button>
+              </section>
+<!-- PANTALLA lista de pokémon -->
+            <section class="grid" id="pokemonList">
               <select id="listFor">
-                  <option value="name">Alfabéticamente</option> 
-                  <option value="id">Por id</option> 
+                  <option value="name">Alfabéticamente</option>
+                  <option value="id">Por id</option>
                </select>
                <select id="listOrder">
-                  <option value="ascendente">Ascendente</option> 
-                  <option value="descendente">Descendente</option> 
+                  <option value="ascendente">Ascendente</option>
+                  <option value="descendente">Descendente</option>
                </select>
                <button id="filterSearch">Buscar</button>
               </section>
+<!-- PANTALLA estadísticas -->
             <section id="statisticsList">
               <select id="statisticsOptions">
-                <option value="spawn_chance">Media de probabilidades de reproducción de la primera generación de pokemon</option> 
+                <option value="spawn_chance">Media de probabilidades de reproducción de la primera generación de pokemon</option>
              </select>
              <button id="statisticSearch">Calcular</button>
             </section>
             <section class= "grid" id="results"></section>
-            
+
+          </main>
+<!-- FOOTER -->
             <footer>&copy;Febrero 2019</footer>
             <div style="overflow:hidden"> </div>
-          <div id="root"></div>
-          <!-- <script src="./data/injuries/injuries.js"></script> -->
-           <script src="./data/pokemon/pokemon.js"></script> 
-          <!-- <script src="./data/steam/steam.js"></script> -->
-          <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-          <!-- <script src="./data/lol/lol.js"></script> -->
+
+
+          <script src="./data/pokemon/pokemon.js"></script>
           <script src="data.js"></script>
           <script src="main.js"></script>
   </body>
