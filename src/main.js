@@ -1,3 +1,4 @@
+ 
  //Función para generar random
  let random= function (data){
   let randomId= Math.floor(((Math.random()*data.length)+1));
@@ -7,7 +8,7 @@
 //manda llamar la función de generar pokemon random al momento de cargar la pantalla
 window.onload= function init (){
     document.getElementById("pokemonOfTheDay").style.display="block";
-    let pokemon= dataLovers.findPokemonRandom(POKEMON.pokemon, random(POKEMON.pokemon));
+    let pokemon = dataLovers.findPokemonRandom(POKEMON.pokemon, random(POKEMON.pokemon));
     printFirstData(pokemon);  
   };
  
@@ -16,10 +17,10 @@ document.getElementById("pokemonList").style.display="none";
 document.getElementById("pokemonTypes").style.display="none";
 document.getElementById("statisticsList").style.display="none";
 
-//función del botón random que llama a generar un pokemón aleatorio
+//Función del botón random que llama a generar un pokemón aleatorio
 function showPokemon(){
-let pokemon=dataLovers.findPokemonRandom(POKEMON.pokemon, random(POKEMON.pokemon));
-printAll(pokemon);
+let pokemon= dataLovers.findPokemonRandom(POKEMON.pokemon, random(POKEMON.pokemon));
+printFirstData(pokemon);
 }
 document.getElementById("random").addEventListener("click", showPokemon);
 
@@ -32,7 +33,6 @@ document.getElementById("pokemonOfTheDay").style.display="block";
 document.getElementById("pokemonList").style.display="none";
 document.getElementById("pokemonTypes").style.display="none";
 document.getElementById("statisticsList").style.display="none";
-console.log(document.getElementById("searchPokemon").value);
 }
 document.getElementById("search").addEventListener("click", searchButton);
 
@@ -45,6 +45,7 @@ document.getElementById("search").addEventListener("click", searchButton);
   document.getElementById("type").innerHTML = "Tipo: " + pokemon.type;
   document.getElementById("weaknesses").innerHTML = "Debilidades: " + pokemon.weaknesses;
   document.getElementById("spawn_time").innerHTML = "Tiempo: " + pokemon.spawn_time;
+
   //Si tiene next_evolution o prev_evolution lo imprime, si no, los deja en blanco
   if (pokemon.next_evolution!== undefined){       
        if (pokemon.next_evolution.length===1){
@@ -113,6 +114,13 @@ function menuList(){
 }
 document.getElementById("list").addEventListener("click", menuList);
 
+function printOrderList(){
+  let pokemonOrder= dataLovers.sortData(POKEMON.pokemon, document.getElementById("listFor").value, document.getElementById("listOrder").value);
+  table(pokemonOrder);
+}
+
+document.getElementById("filterSearch").addEventListener("click",  printOrderList);
+
 //Función para imprimir la lista de pokemones total y por tipo
 function table(data){
   const paragraph= document.getElementById("results");
@@ -140,7 +148,7 @@ function start() {
 document.getElementById("start").addEventListener("click", start);
 
 //función para activar la pantalla de estadísticas
-function statisticsButton(){
+function statistics(){
   document.getElementById("results").innerHTML=" ";
   document.getElementById("pokemonList").style.display="none";
   document.getElementById("pokemonOfTheDay").style.display="none";
@@ -148,13 +156,6 @@ function statisticsButton(){
   document.getElementById("statisticsList").style.display="none";
   document.getElementById("statisticsList").style.display="block";
 }
-document.getElementById("statistics").addEventListener("click", statisticsButton);
-
-function statistics(){
-  const average=dataLovers.computeStats(POKEMON.pokemon, document.getElementById("statisticsOptions").value);
-  document.getElementById("results").innerHTML=average;
-  
-}
-
-document.getElementById("statisticSearch").addEventListener("click", statistics);
+document.getElementById("statistics").addEventListener("click", statistics);
+document.getElementById("statisticSearch").addEventListener("click", function(){dataLovers.computeStats(POKEMON.pokemon, document.getElementById("statisticsOptions").value);});
 

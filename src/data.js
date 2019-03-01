@@ -1,26 +1,14 @@
 window.dataLovers={
-
-//función para encontrar al pokemon random
-findPokemonRandom: function  (data,condition){  
-  for (let i=0; i<data.length; i++){
-      let pokemon =data[i];
-      if (pokemon.id==condition){       
-          return pokemon;
-      }
-  }
+ //función para encontrar al pokemon random
+ findPokemonRandom: function  (data,condition){  
+ const pokemon=data.filter(pokemon=> (pokemon.id == condition));
+ return pokemon[0];
 },
-
 //función para encontrar al pokemon con el buscador
 findPokemon: function (data,condition){  
-  for (let i=0; i<data.length; i++){
-      let pokemon =data[i];
-      if (pokemon.name==condition){  
-        console.log(pokemon);     
-        return pokemon;
-      }
-  }
+  const pokemon=data.filter(pokemon=> (pokemon.name == condition));
+  return pokemon[0];
 },
-
 //Función para filtrar por tipo de pokemón
 filterType:function  (data, condition){
   const filterProperties = data.filter(pokemon => (pokemon.type[0] == condition || pokemon.type[1] == condition));
@@ -38,7 +26,7 @@ sortData: function (data, sortBy, sortOrder){
     }
   return 0;
   });
-  console.log(pokemonOrder);
+ 
   return pokemonOrder;
   }else if(sortOrder==="descendente"){
     pokemonOrder=data.sort(function(ob1,ob2){
@@ -49,9 +37,7 @@ sortData: function (data, sortBy, sortOrder){
       }
     return 0;
     });
-   
   }
-  console.log(pokemonOrder);
   return pokemonOrder;
   },
 
@@ -62,5 +48,4 @@ computeStats: function(data, condition){
   average=average/filterData.length;
   return average;
    }
-   
 };
