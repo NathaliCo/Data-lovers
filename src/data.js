@@ -1,8 +1,8 @@
 window.dataLovers={
  //función para encontrar al pokemon random
  findPokemonRandom: function  (data,condition){  
- const pokemon=data.filter(pokemon=> (pokemon.id == condition));
- return pokemon[0];
+  const pokemon=data.filter(pokemon=> (pokemon.id == condition));
+  return pokemon[0];
 },
 //función para encontrar al pokemon con el buscador
 findPokemon: function (data,condition){  

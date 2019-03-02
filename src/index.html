@@ -49,32 +49,29 @@
                       <span id = "egg"></span><br>
                       <span id = "multipliers"></span><br>
                     </div>
-                  
+                  </div>
             <button id = "random"> Conocer a otro pokémon </button> 
             <button id = "more">Conocer más</button>
           </section>
           
-          <section >
-              <select id="pokemonTypes">
-                <option value = "Fire" > Fuego </option> 
-                <option value = "Water">Agua </option> 
-                <option value = "Poison">Veneno </option> 
-                <option value = "Normal">Normal</option> 
-                <option value = "Grass"> Planta </option> 
-                <option value = "Electric">Eléctrico </option> 
-                <option value = "Ice">Hielo </option> 
-                <option value = "Fighting">Peleador</option> 
-                <option value = "Ground">Tierra</option> 
-                <option value = "Flying">Volador </option> 
-                <option value = "Psychic">Psíquico</option> 
-                <option value = "Bug"> Insecto </option> 
-                <option value = "Rock"> Roca </option> 
-                <option value = "Dragon">Dragon </option> 
-                <option value = "Ghost">Fantasma </option>           
-             </select>
-             <button id="filterType">Buscar</button>
+          <section id="pokemonTypes">
+                <button class = "typeButton" id = "Fire" > Fuego </button> 
+                <button class = "typeButton" id = "Water">Agua </button>
+                <button class = "typeButton" id = "Poison">Veneno </button> 
+                <button class = "typeButton" id = "Normal">Normal</button> 
+                <button class = "typeButton" id = "Grass"> Planta </button>
+                <button class = "typeButton" id = "Electric">Eléctrico </button>
+                <button class = "typeButton" id = "Ice">Hielo </button> 
+                <button class = "typeButton" id = "Fighting">Peleador</button>
+                <button class = "typeButton" id = "Ground">Tierra</button>
+                <button class = "typeButton" id = "Flying">Volador </button>
+                <button class = "typeButton" id = "Psychic">Psíquico</button> 
+                <button class = "typeButton" id = "Bug"> Insecto </button>
+                <button class = "typeButton" id = "Rock"> Roca </button>
+                <button class = "typeButton" id = "Dragon">Dragon </button>
+                <button class = "typeButton" id = "Ghost">Fantasma </button>           
             </section>
-          <section class= "grid" id="pokemonList">
+          <section id="pokemonList">
               <select id="listFor">
                   <option value="name">Alfabéticamente</option> 
                   <option value="id">Por id</option> 
@@ -86,13 +83,27 @@
                <button id="filterSearch">Buscar</button>
               </section>
             <section id="statisticsList">
+                <label>Media de probabilidades de aparición de pokemones de la primera generación de pokemon por tipo<br></label>
               <select id="statisticsOptions">
-                <option value="spawn_chance">Media de probabilidades de reproducción de la primera generación de pokemon</option> 
+                <option value="Fire" >Fuego</option> 
+                <option value = "Water">Agua </option>
+                <option value = "Poison">Veneno </option> 
+                <option value  = "Normal">Normal </option> 
+                <option value = "Grass"> Planta </option>
+                <option value = "Electric">Eléctrico </option>
+                <option value = "Ice">Hielo </option> 
+                <option value = "Fighting">Peleador</option>
+                <option value = "Ground">Tierra</option>
+                <option value = "Flying">Volador </option>
+                <option value = "Psychic">Psíquico</option> 
+                <option value = "Bug"> Insecto </option>
+                <option value = "Rock"> Roca </option>
+                <option value = "Dragon">Dragon </option>
+                <option value = "Ghost">Fantasma </option>
              </select>
              <button id="statisticSearch">Calcular</button>
             </section>
-            <section class= "grid" id="results"></section>
-            
+            <section id="results"></section>
             <footer>&copy;Febrero 2019</footer>
             <div style="overflow:hidden"> </div>
           <div id="root"></div>
