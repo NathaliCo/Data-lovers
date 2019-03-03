@@ -129,6 +129,14 @@ font-size: 2rem;
 
  /* -----------------------------------------------------------------------*/
 
+   .grid {
+      display: grid;
+      grid-template-columns: repeat( auto-fit, minmax( 20rem, 1fr ) );
+      grid-auto-rows: max-content;
+      grid-gap: 1rem;
+      justify-content: center;
+    }
+
  footer{
    background: #304F63;
    padding: 1%;
