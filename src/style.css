@@ -33,19 +33,18 @@ color: #4c020b;
  /* -----------------------------------------------------------------------*/
 .wrapper{
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  text-align: center;
 
 
 }
 
 .pokeBox{
-  display:grid;
-  align-self: start;
+  display: inline-block;
   text-align: center;
 }
  /* The side navigation menu */
 .sidebar {
-
+  position:fixed;
   margin: 0;
   padding: 0;
   width: 250px;
@@ -54,6 +53,7 @@ color: #4c020b;
   overflow: auto;
   list-style: none;
 }
+
 
 /* Sidebar links */
 .sidebar a {
@@ -67,6 +67,10 @@ color: #4c020b;
 .sidebar a.active {
   background-color: #4CAF50;
   color: white;
+}
+
+.sidebar ul:hover>li {
+  display:block;
 }
 
 /* Links on mouse-over */
@@ -108,11 +112,14 @@ font-size: 2rem;
 
 /* -----------------------------------------------------------------------*/
    .grid {
-      display: grid;
+      /*display: grid;
       grid-template-columns: repeat( auto-fit, minmax( 20rem, 1fr ) );
       grid-auto-rows: max-content;
       grid-gap: 1rem;
-      justify-content: center;
+      justify-content: center; */
+      padding-left: 250px;
+      margin-left:260px;
+
     }
 
  footer{
