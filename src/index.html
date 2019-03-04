@@ -10,55 +10,53 @@
 
         <body>
 <!-- HEADER con un NAV que contiene el botón de búsqueda -->
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png" alt="">
-</header>
+          <header>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png" alt="">
+          </header>
 
 
   <!-- MAIN página que muestra todas las pantallas -->
           <main class="wrapper">
-            <!-- SIDEBAR  -->
-                        <div class="sidebar" id="menu">
-                          <ul>
-                            <ul>
-                              <li id="searchBtn">
-                                <input class="searchBox" id="searchPokemon" type="text" name="" placeholder="Buscar">
-                                <a id="search" href="#">
-                                  <i  class="fas fa-search"></i> </a>
-                              </li>
-                              <li id="start"><a href="#">Inicio</a></li>
-                              <li id="list"><a href="#">Lista</a></li>
-                              <li id="types"><a href="#">Tipos</a></li>
-                              <li id="statistics"><a href="#">Estadísticas</a></li>
-                            </ul>
-                          </ul>
-                        </div>
-            <!--CONTAINER POKEMON OF THE DAY -->
+  <!-- SIDEBAR  -->
+              <div class="sidebar" id="menu">
+                <ul>
+                  <ul>
+                    <li id="searchBtn">
+                      <input class="searchBox" id="searchPokemon" type="text" name="" placeholder="Buscar">
+                        <a id="search" href="#">
+                          <i  class="fas fa-search"></i> </a>
+                    </li>
+                    <li id="start"><a href="#">Inicio</a></li>
+                    <li id="list"><a href="#">Lista</a></li>
+                    <li id="types"><a href="#">Tipos</a></li>
+                    <li id="statistics"><a href="#">Estadísticas</a></li>
+                  </ul>
+                </ul>
+              </div>
+  <!--CONTAINER POKEMON OF THE DAY -->
               <div class="pokeBox" id="pokemonOfTheDay"> Pokemon of the day
-                <section id="infoTable">
-                    <div id="pictureName">
-                      <span><img class= "picture" id = "picture" src="#" alt="pokemon"></span><br>
-                      <span id="name"></span>
-                    </div>
-                    <div id="caracteristics">
-                      <span id = "type"></span><br>
-                      <span id = "weaknesses"></span><br>
-                      <span id = "spawn_time"></span><br>
-                      <span id = "next_evolution"></span><br>
-                      <span id = "prev_evolution"></span><br>
-                      <span id = "avg_spawns"></span><br>
-                      <span id = "spawn_chance"></span><br>
-                      <span id = "height"></span><br>
-                      <span id = "weight"></span><br>
-                      <span id = "candy"></span><br>
-                      <span id = "candy_count"></span><br>
-                      <span id = "egg"></span><br>
-                      <span id = "multipliers"></span><br>
-                    </div>
+                <div class="table" id="pictureName">
+                  <span><img class= "picture" id = "picture" src="#" alt="pokemon"></span><br>
+                  <span id="name"></span>
+                </div>
+                <div id="caracteristics">
+                  <span id = "type"></span><br>
+                  <span id = "weaknesses"></span><br>
+                  <span id = "spawn_time"></span><br>
+                  <span id = "next_evolution"></span><br>
+                  <span id = "prev_evolution"></span><br>
+                  <span id = "avg_spawns"></span><br>
+                  <span id = "spawn_chance"></span><br>
+                  <span id = "height"></span><br>
+                  <span id = "weight"></span><br>
+                  <span id = "candy"></span><br>
+                  <span id = "candy_count"></span><br>
+                  <span id = "egg"></span><br>
+                  <span id = "multipliers"></span><br>
+                </div>
                       <button id ="random"> Conocer a otro pokémon </button>
                       <button id ="more">Conocer más</button>
-                </section>
-              </div>
+                              </div>
 <!-- PANTALLA tipos de pokémon -->
               <section id="pokemonTypes">
                  <button class = "typeButton" id = "Fire" > Fuego </button>
@@ -112,8 +110,10 @@
              <button id="statisticSearch">Calcular</button>
             </section>
             <section id="results"></section>
+          </main>
+<!-- FOOTER -->
             <footer>&copy;Febrero 2019</footer>
-            <div style="overflow:hidden"> </div>
+            
 
 
           <script src="./data/pokemon/pokemon.js"></script>
