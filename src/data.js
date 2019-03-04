@@ -5,8 +5,9 @@ window.dataLovers={
   return pokemon[0];
 },
 //función para encontrar al pokemon con el buscador
-findPokemon: function (data,condition){  
-  const pokemon=data.filter(pokemon=> (pokemon.name == condition));
+findPokemon: function (data, condition){  
+  let UpperPokemon= condition.charAt(0).toUpperCase() + condition.slice(1);
+  const pokemon=data.filter(pokemon=> (pokemon.name == UpperPokemon));
   return pokemon[0];
 },
 //Función para filtrar por tipo de pokemón
