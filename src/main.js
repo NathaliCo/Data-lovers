@@ -20,11 +20,12 @@ document.getElementById("statisticsList").style.display="none";
 function showPokemon(){
     let pokemon= dataLovers.findPokemonRandom(POKEMON.pokemon, random(POKEMON.pokemon));
     printFirstData(pokemon);
+    document.getElementById("more").style.display="none";
 }
 document.getElementById("random").addEventListener("click", showPokemon);
 
 //Función del boton de buscar
-function searchButton(){
+function searchButton(){  
     let pokemon=dataLovers.findPokemon(POKEMON.pokemon, document.getElementById("searchPokemon").value);
     printAll(pokemon);
     document.getElementById("searchPokemon").value = "";
@@ -105,7 +106,7 @@ function printAll(pokemon){
   document.getElementById("avg_spawns").innerHTML = "Avg_spawns: " + pokemon.avg_spawn;
   document.getElementById("multipliers").innerHTML = "Multipliers: " + pokemon.multipliers;
   document.getElementById("more").style.display= "none";
-  document.getElementById("random").style.display= "none";
+  
 }
 
 document.getElementById("more").addEventListener("click",knowMore);
