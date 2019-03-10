@@ -4,10 +4,10 @@
   text-align: center;
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   color: #4c020b;
-  
+
   }
-  
-  
+
+
    header{
       background: linear-gradient(to bottom, #515796 0%, #f8769f 100%);
       width: 100%;
@@ -15,35 +15,35 @@
       border-radius: 10px;
       margin: 30px 0px;
    }
-  
+
    img{
      background-position: center;
      padding-top: 1rem;
      padding-bottom: 1rem;
    }
-  
+
   #searchBtn{
     display: flex;
     justify-content: center;
     flex-direction: row;
   }
-  
+
   .searchBox{
     width: 60%;
   }
-  
+
    /* -----------------------------------------------------------------------*/
   .wrapper{
       overflow: hidden;
   }
-  
+
   .pokeBox{
     align-self: start;
     text-align: center;
   }
    /* The side navigation menu */
   .sidebar {
-  
+
     margin: 0;
    padding-top: 20px;
     width: 25%;
@@ -53,7 +53,7 @@
     float: left;
 
   }
-  
+
   /* Sidebar links */
   .sidebar a {
     display: block;
@@ -61,19 +61,19 @@
     padding: 16px;
     text-decoration: none;
   }
-  
+
   /* Active/current link */
   .sidebar a.active {
     background-color: #4CAF50;
     color: white;
   }
-  
+
   /* Links on mouse-over */
   .sidebar a:hover:not(.active) {
     background-color:#f77fa7;
     color: white;
   }
-  
+
   /* On screens that are less than 700px wide, make the sidebar into a topbar */
   @media screen and (max-width: 700px) {
     .sidebar {
@@ -84,26 +84,26 @@
     .sidebar a {text-align: center;
        float: none;}
     div.content {margin-left: 0;}
-    
-    
+
+
   }
-  
+
   /* -----------------------------------------------------------------------*/
-  
+
   #name{
   font-size: 2rem;
   }
-  
+
   #picture{
      width:180px;
      height:180px;
      }
-  
+
   /* -----------------------------------------------------------------------*/
      #results {
         justify-content: center;
       }
-  
+
    footer{
        background-color: purple;
        font-size: 17px;
