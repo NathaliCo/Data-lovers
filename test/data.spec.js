@@ -1,17 +1,22 @@
 require('../src/data.js');
 const POKEMON = require("../src/data/pokemon/pokemon.json");
 
+let newData=POKEMON.pokemon;
+const translateData = newData.map( item => { 
+  return { Id: item.id, Número: item.num, Nombre: item.name, Imagen:item.img, Tipo: item.type , Altura : item.height, Peso: item.weight, Dulces: item.candy, Número_de_dulces: item.candy_count, Huevos: item.egg, Probabilidades_de_aparición: item.spawn_chance,  Hora_más_activa_de_apariciones: item.spawn_time, Próxima_evolución: item.next_evolution, Evolución_anterior: item.prev_evolution}; 
+});
+
 describe('filtrarNombre', () => {
   it('Filtrar por nombre es una función', () => {
     expect(typeof dataLovers.findPokemon).toBe("function");
   });
 
   it('Filtrar por nombre', () => {
-    expect(dataLovers.findPokemon(POKEMON.pokemon, "Venusaur")).toBe(POKEMON.pokemon[2]);
+    expect(dataLovers.findPokemon(translateData, "Venusaur")).toBe(translateData[2]);
   });
 
   it('Filtrar por nombre', () => {
-    expect(dataLovers.findPokemon(POKEMON.pokemon, "Bulbasaur")).toBe(POKEMON.pokemon[0]);
+    expect(dataLovers.findPokemon(translateData, "Bulbasaur")).toBe(translateData[0]);
   });
 
 });
@@ -21,7 +26,7 @@ describe('filtrarRandom', () => {
     expect(typeof dataLovers.findPokemonRandom).toBe("function");
   });
   it('Filtrar por id', () => {
-    expect(dataLovers.findPokemonRandom(POKEMON.pokemon, 5)).toBe(POKEMON.pokemon[4]);
+    expect(dataLovers.findPokemonRandom(translateData, 5)).toBe(translateData[4]);
   });
 });
 
@@ -74,4 +79,3 @@ describe('Promedio', () => {
     expect(dataLovers.computeStats(POKEMON.pokemon, "spawn_chance")).toBe(0.7319854304635764);
   });
 });
-

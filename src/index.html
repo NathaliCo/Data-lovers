@@ -2,94 +2,102 @@
   <html lang="es">
     <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
       <title>Pokeguía</title>
-      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="style.css"/>
+      <link rel="stylesheet" href="font.css"/>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
        <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
-    </head>
-
+     
+      </head>
         <body>
+        <div class="socialBar">
+         <ul>
+              <li><a href="https://www.facebook.com/" target="_blanck" class ="icon-facebook2"></a></li>
+              <li><a href="http://www.twitter.com/" target="_blanck" class ="icon-twitter"></a></li>
+              <li><a href="https://www.instagram.com/?hl=es-la" target="_blanck" class ="icon-instagram"></a></li>
+              <li><a href="https://www.hotmail.com" target="_blanck" class ="icon-mail4"></a></li>
+
+          </ul>
+        
+        </div>
 <!-- HEADER con un NAV que contiene el botón de búsqueda -->
           <header>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png" alt="">
+            <div class="search-box">
+              <input class="search-txt" id="searchPokemon" onkeypress="keypress(event)" type="text" placeholder="Buscar">
+              <a class= "search-btn" id="search" href="#" > 
+                <i class="fas fa-search"></i> </a>
+            </div>
           </header>
-
-
   <!-- MAIN página que muestra todas las pantallas -->
           <main class="wrapper">
-  <!-- SIDEBAR  -->
-              <div class="sidebar" id="menu">
-                <ul>
-
-                    <li id="searchBtn">
-                      <input class="searchBox" id="searchPokemon" type="text" placeholder="Buscar">
-                        <a id="search" href="#">
-                          <i  class="fas fa-search"></i> </a>
-                    </li>
-                    <li id="start"><a href="#">Inicio</a></li>
-                    <li id="list"><a href="#">Lista</a></li>
-                    <li id="types"><a href="#">Tipos</a></li>
-                    <li id="statistics"><a href="#">Estadísticas</a></li>
-
-                </ul>
-              </div>
+              <div class="menu">
+                  <input id="toggle" type="checkbox"/>
+                  <label for="toggle" class="drop">
+                     <svg width="36px" height="36px" ><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
+                  </label >
+                  <nav>
+                     <a id="start" href="#">Inicio</a>
+                     <a class= "pokemonList" id="list" href="#">Ver lista</a>
+                     <a id="statistics" href="#">Estadísticas</a>
+                     <a id="aboutUs" href="#">Acerca de</a>
+                     <a id="aboutPokemonGO" href="https://es.wikipedia.org/wiki/Pok%C3%A9mon_GO" target="_blanck">Más sobre pokemonGO</a>
+                  </nav>  
+               </div>
+  
   <!--CONTAINER POKEMON OF THE DAY -->
-              <section class="pokeBox" id="pokemonOfTheDay"> <h2>Pokemon of the day </h2>
-                <div class="table" id="pictureName">
-                  <span><img class= "picture" id = "picture" src="#" alt="pokemon"></span><br>
-                  <span id="name"></span>
+              <section class="pokeBox" id="pokemonOfTheDay"> <h2>Pokémon del día </h2>
+                <div class="container">
+                  <div class="front">
+                  <img id = "picture" src="#" alt="pokemon"><br>
+                  <span id="name"></span>  <br>
                 </div>
-                <div id="caracteristics">
-                  <span id = "type"></span><br>
-                  <span id = "weaknesses"></span><br>
-                  <span id = "spawn_time"></span><br>
-                  <span id = "next_evolution"></span><br>
-                  <span id = "prev_evolution"></span><br>
-                  <span id = "avg_spawns"></span><br>
-                  <span id = "spawn_chance"></span><br>
-                  <span id = "height"></span><br>
-                  <span id = "weight"></span><br>
-                  <span id = "candy"></span><br>
-                  <span id = "candy_count"></span><br>
-                  <span id = "egg"></span><br>
-                  <span id = "multipliers"></span><br>
-                </div>
-                      <button id ="random"> Conocer a otro pokémon </button>
-                      <button id ="more">Conocer más</button>
-              </section>
-<!-- PANTALLA tipos de pokémon -->
-              <section id="pokemonTypes"><h2>Filtrar lista de pokémon según su tipo</h2>
-                 <button class = "typeButton" id = "Fire" > Fuego </button>
-                 <button class = "typeButton" id = "Water">Agua </button>
-                 <button class = "typeButton" id = "Poison">Veneno </button>
-                 <button class = "typeButton" id = "Normal">Normal</button>
-                 <button class = "typeButton" id = "Grass"> Planta </button>
-                 <button class = "typeButton" id = "Electric">Eléctrico </button>
-                 <button class = "typeButton" id = "Ice">Hielo </button>
-                 <button class = "typeButton" id = "Fighting">Peleador</button>
-                 <button class = "typeButton" id = "Ground">Tierra</button>
-                 <button class = "typeButton" id = "Flying">Volador </button>
-                 <button class = "typeButton" id = "Psychic">Psíquico</button>
-                 <button class = "typeButton" id = "Bug"> Insecto </button>
-                 <button class = "typeButton" id = "Rock"> Roca </button>
-                 <button class = "typeButton" id = "Dragon">Dragón </button>
-                 <button class = "typeButton" id = "Ghost">Fantasma </button>
+                  <div class="back">
+                                  
+                <div id="caracteristics"></div>
+              </div>
+              </div>
+                <button id ="random">Conocer otro pokémon</button>
+                <br><br><br><h2>¿Sabias qué?</h2>
+                <p id="pokemonFacts"></p>
               </section>
 <!-- PANTALLA lista de pokémon -->
             <section class="grid" id="pokemonList"><h2>Ordenar lista de pokémon</h2>
+              
               <select id="listFor">
-                  <option value="name">Alfabéticamente</option>
-                  <option value="id">Por id</option>
-               </select>
+                <option value="name">Alfabéticamente</option>
+                <option value="id">Por id</option>
+              </select>
+            
                <select id="listOrder">
                   <option value="ascendente">Ascendente</option>
                   <option value="descendente">Descendente</option>
                </select>
+              
                <button id="filterSearch">Ordenar</button>
+            <!--Tipos de pokémon -->
+            <div id="pokemonTypes"><h2>Filtrar lista de pokémon según su tipo</h2>
+              <button class = "typeButton" id = "Fire" > Fuego </button>
+              <button class = "typeButton" id = "Water">Agua </button>
+              <button class = "typeButton" id = "Poison">Veneno </button>
+              <button class = "typeButton" id = "Normal">Normal</button>
+              <button class = "typeButton" id = "Grass"> Planta </button>
+              <button class = "typeButton" id = "Electric">Eléctrico </button>
+              <button class = "typeButton" id = "Ice">Hielo </button>
+              <button class = "typeButton" id = "Fighting">Peleador</button>
+              <button class = "typeButton" id = "Ground">Tierra</button>
+              <button class = "typeButton" id = "Flying">Volador </button>
+              <button class = "typeButton" id = "Psychic">Psíquico</button>
+              <button class = "typeButton" id = "Bug"> Insecto </button>
+              <button class = "typeButton" id = "Rock"> Roca </button>
+              <button class = "typeButton" id = "Dragon">Dragón </button>
+              <button class = "typeButton" id = "Ghost">Fantasma </button>
+           </div>
               </section>
 <!-- PANTALLA estadísticas -->
             <section id="statisticsList">
-              <h2>Media de probabilidades de aparición de pokemones de la primera generación de pokemon por tipo<br></h2>
+              <h2>Media de probabilidades de aparición de pokemones de <br>la primera generación de pokemon por tipo<br></h2>
               <select id="statisticsOptions">
                 <option value="Fire" >Fuego</option>
                 <option value = "Water">Agua </option>
@@ -110,9 +118,13 @@
              <button id="statisticSearch">Calcular</button>
             </section>
             <section id="results"></section>
+            <section id="usAbout">
+              La pokeguía fue diseñada para acopañarte en tu aventura con Pokémon GO. Cada día podrás conocer a un pokémon nuevo. Podrás revisar la lista completa de pokémon de Kanto y ordenarlos y filtrarlos a tu gusto. 
+            </section>
+           
           </main>
 <!-- FOOTER -->
-            <footer>&copy;PokeGuía de Lucie y Nathalie, Febrero 2019</footer>
+            <footer>&copy;¡Bienvenida! PokeGuía de Lucie y Nathalie, Febrero 2019</footer>
           <script src="./data/pokemon/pokemon.js"></script>
           <script src="data.js"></script>
           <script src="main.js"></script>
