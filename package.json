@@ -12,9 +12,7 @@
   "dependencies": {
     "eslint": "^5.9.0",
     "eslint-plugin-jest": "^22.1.2",
-    "jest": "^24.1.0"
-  },
-  "devDependencies": {
-    "htmlhint": "^0.10.1"
+    "htmlhint": "^0.10.1",
+    "jest": "^24.3.1"
   }
 }
