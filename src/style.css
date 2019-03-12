@@ -17,7 +17,7 @@
    font-size: 1.5rem;
   background: rgb(245, 231, 42) ;
   width: 100%;
-	height: 100%;    
+  height: 100%;    
 }
      /* -----------------------------------------------------------------------*/
   .wrapper {
@@ -94,7 +94,7 @@
   list-style: none;
   position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
   right: 0%; /* Establecemos la barra en la izquierda */
-  top: 40%; /* Bajamos la barra 200px de arriba a abajo */
+  top: 40%; /* B ajamos la barra 200px de arriba a abajo */
   z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
 }
  
@@ -189,7 +189,9 @@
        position: relative;
     text-align: center;
     width: 100%;
+    height: auto;
     bottom:0px;
+    
    }
    
    .clearfix::after {
@@ -298,6 +300,7 @@ padding: 10px;
   width: 400px;
   height:  400px;
   position: absolute;
+  border-radius: 10%;
   
 }
 
@@ -431,4 +434,12 @@ padding: 10px;
 #usAbout>img{
   width: 100%;
   height: auto;
+}
+
+#graphics {
+  position: relative;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:500px;
 }

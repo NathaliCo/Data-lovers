@@ -47,7 +47,7 @@ function searchButton(){
     document.getElementById("pokemonList").style.display="none";
     document.getElementById("statisticsList").style.display="none";
     document.getElementById("usAbout").style.display="none";
-    document.getElementById("random").style.display="none";
+   
     document.getElementById("results").style.display="none";
     document.getElementById("graphics").style.display="none";
 }
@@ -224,11 +224,13 @@ function drawChart() {
   ]);
 
   const options = {'title':'Porcentaje de probabilidades de aparición de pokemon por tipo',
-                 'width':1000,
-                 'height':600};
+  width: '100%',
+      height: '500px'
+};
   const chart = new google.visualization.PieChart(document.getElementById('graphics'));
   chart.draw(data, options);
 }
+
 document.getElementById("charts").addEventListener("click", graficas);
 document.getElementById("searchPokemon").addEventListener('keypress', logKey);
 
@@ -236,6 +238,7 @@ function logKey(e) {
   key = (document.all) ? e.keyCode : e.which;
   if (key==13) searchButton();
 }
+
 
 });
 
