@@ -47,6 +47,7 @@
   padding: .3rem;
   transition: background .2s;
   display: block;
+  width: 20%;
 }
 .menu nav > a:hover {
   background:rgb(247, 47, 197);
@@ -341,7 +342,7 @@ padding: 10px;
   #front{
     content: "click me!";
     z-index: 100;
-    background-color: pink;
+    background-color:  rgb(248, 238, 100);
     transition: all 2s ease-in-out;
     cursor: pointer;
   }
@@ -427,3 +428,7 @@ padding: 10px;
   background-color: lightslategray;
 }
 
+#usAbout>img{
+  width: 100%;
+  height: auto;
+}

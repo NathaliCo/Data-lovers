@@ -15,7 +15,7 @@ const translateData = newData.map( item => {
 
 function pokemonFacts(){
   let data= FACTS.facts;
-  let random = Math.floor(((Math.random()*data.length)+1));
+  let random = Math.floor(((Math.random()*data.length)));
   document.getElementById("pokemonFacts").innerHTML=data[random];
 }
 
@@ -246,7 +246,7 @@ function logKey(e) {
    "Aunque Pokémon cuenta con el apoyo nada menos que de El Vaticano, ha tenido problemas en otros países. Arabia Saudí prohibió la venta del juego de cartas por mostrar la estrella de David, China lo ha boicoteado para que no compita con su propia industria de la animación y en Estados Unidos varios episodios han sido censurados",
    "En origen, el rosa Clefairy iba a ser la mascota de la serie pero finalmente fue Pikachu el diseño elegido, principalmente por su color amarillo, más memorable. El nombre del pokémon más famoso deriva de dos onomatopeyas japonesas: pika, el sonido que indica chispas, y chu, el ruido que hacen los ratones.",
   "Pikachu fue nombrado segunda mejor persona del año 1999 por Time (sólo después de Ricky Martin) y el octavo personaje de ficción más rico de 2003 por Forbes, con una fortuna de 825 millones de dólares (unos 750 millones de euros al cambio actual). Es tan famoso que ha dado nombre a una proteína encargada de acelerar el envío de señales entre el ojo y el cerebro. La pikachurin fue descubierta por un grupo de científicos japoneses que eligieron el nombre porque su velocidad recordaba a la del pokémon.",
-  ",Pikachu no es de los monstruitos llamados 'de nivel básico´: es la primera evolución de Pichu, uno más sencillo pero que se le parece mucho. Junichi Masuda, uno de los creadores de la saga, señala que Pichu es su pokémon favorito porque tuvo un proceso de diseño muy cuidado y planeado.",
+  "Pikachu no es de los monstruitos llamados 'de nivel básico´: es la primera evolución de Pichu, uno más sencillo pero que se le parece mucho. Junichi Masuda, uno de los creadores de la saga, señala que Pichu es su pokémon favorito porque tuvo un proceso de diseño muy cuidado y planeado.",
   "Bulbasaur, el primer pokemon que se elige en los videojuegos, debe su nombre a una combinación de las palabras inglesas de bulbo y dinosaurio, en referencia a los dos elementos que lo componen. Sin embargo, en Japón se llama Fushigidane, una expresión que significa '¿A que es raro?' y también 'semilla misteriosa'. Aunque está muy lejos de ser uno de los pokémon fuertes, es el favorito de muchísimos fans.",
   "Charmander y sus evoluciones Charmeleon y Charizard deben sus nombres a la mezcla entre char, que en inglés significa carbonizar, y distintos tipos de reptil (por salamandra, camaleón y lagarto, respectivamente). Es uno de los únicos pokémon del que todos los niveles son muy populares, especialmente entre la audiencia occidental. La primera carta de Charizard que se comercializó puede llegar a valer unos 2.000 euros en la actualidad porque es de las más potentes y raras.",
   "A pesar de no estar entre los personajes principales, Jigglypuff es uno de los pokemon más populares, elegido como una de las mascotas oficiales de Nintendo. Su nombre hace referencia a su apariencia gelatinosa (jiggly, temblón) y a su habilidad de inflarse (puff, inflar). En japonés se le conoce como Purin, la pronunciación nipona de pudin.",
