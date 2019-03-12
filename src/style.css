@@ -185,7 +185,10 @@
        padding: 5px 0px;
        height: 30px;
        margin: 20px 0px 0px 0px;
-       position: absolute;
+       position: relative;
+    text-align: center;
+    width: 100%;
+    bottom:0px;
    }
    
    .clearfix::after {
@@ -196,7 +199,7 @@
 
 /* ---------------------Type buttons---------------------------*/
 button{
-  background-color: white;
+background-color: white;
  border-radius: 30%;
  padding: 8px 30px;
  overflow:hidden;
@@ -206,7 +209,7 @@ button{
 }
 
 button:hover{
- background-color: purple;
+ background-color: rgb(247, 47, 197);
 }
 
 /*----------*/
@@ -277,7 +280,7 @@ padding: 10px;
 }
 
 #pokemonFacts{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .container {
@@ -290,22 +293,21 @@ padding: 10px;
   margin-left: auto;
 }
 
-.back, .front {
+#back, #front {
   width: 400px;
   height:  400px;
   position: absolute;
- 
   
 }
 
-.front{
+#front{
   z-index: 100;
-  background-color: pink;
   transition: all 2s ease-in-out;
   cursor: pointer;
+  background-color: rgb(248, 238, 100);
 }
 
-.front:hover{
+#front:hover{
   transform: translate(100%);
 }
 
@@ -316,7 +318,7 @@ padding: 10px;
 @media screen and (max-width: 768px) {
   .container {
     width: 250px;
-    height:  250px;
+    height:  270px;
     font-size: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -325,18 +327,18 @@ padding: 10px;
     
   }
   
-  .back, .front {
+  #back, #front {
     width: 250px;
-    height:  250px;
+    height:  270px;
     position: absolute;
    
   }
 
-  .front::after {
+  #front::after {
     content: "Click me!";
   }
 
-  .front{
+  #front{
     content: "click me!";
     z-index: 100;
     background-color: pink;
@@ -344,19 +346,84 @@ padding: 10px;
     cursor: pointer;
   }
   
-  .front:hover{
+  #front:hover{
     transform: translate(0, 100%);
   }
 
   .container:hover{
-    height: 500px;
+    height: 540px;
   }
   #picture{
     width: 70%;
     height: 70%;
   }
+  #pokemonFacts{
+    font-size: 2rem;
+  }
+  
 }
 
 #name{
   font-size: 3rem;
 }
+
+.Fire{
+  background-color: red;
+}
+
+.Water{
+  background-color: blue;
+}
+
+.Poison{
+  background-color: limegreen;
+}
+
+.Normal {
+  background-color: lightseagreen;
+}
+
+.Grass{
+  background-color: green;
+}
+
+.Electric{
+  background-color: lightskyblue;
+}
+
+.Ice{
+  background-color: lightblue;
+}
+
+.Fighting{
+  background-color: black;
+}
+
+.Ground{
+  background-color: brown;
+}
+
+.Flying{
+  background-color: red;
+}
+
+.Psychic{
+  background-color: gray;
+}
+
+.Bug{
+  background-color: green;
+}
+
+.Rock{
+  background-color: gray;
+}
+
+.Dragon{
+  background-color: red;
+}
+
+.Ghost{
+  background-color: lightslategray;
+}
+

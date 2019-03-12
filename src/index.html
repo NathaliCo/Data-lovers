@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="font.css"/>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
        <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
      
       </head>
         <body>
@@ -25,7 +26,7 @@
           <header>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png" alt="">
             <div class="search-box">
-              <input class="search-txt" id="searchPokemon" onkeypress="keypress(event)" type="text" placeholder="Buscar">
+              <input class="search-txt" id="searchPokemon"  type="text" placeholder="Buscar">
               <a class= "search-btn" id="search" href="#" > 
                 <i class="fas fa-search"></i> </a>
             </div>
@@ -49,12 +50,13 @@
   <!--CONTAINER POKEMON OF THE DAY -->
               <section class="pokeBox" id="pokemonOfTheDay"> <h2>Pokémon del día </h2>
                 <div class="container">
-                  <div class="front">
-                  <img id = "picture" src="#" alt="pokemon"><br>
-                  <span id="name"></span>  <br>
+                  <div id = "front">
+                    <img id = "picture" src="#" alt="pokemon"><br>
+  
+                  <div id="name"></div>  <br>
                 </div>
-                  <div class="back">
-                                  
+                  <div id="back">
+                                  <br><br>
                 <div id="caracteristics"></div>
               </div>
               </div>
@@ -116,17 +118,20 @@
                 <option value = "Ghost">Fantasma </option>
              </select>
              <button id="statisticSearch">Calcular</button>
+             <button id= "charts">Ver gráfica</button>
             </section>
             <section id="results"></section>
+            <section id= "graphics"></section>
             <section id="usAbout">
-              La pokeguía fue diseñada para acopañarte en tu aventura con Pokémon GO. Cada día podrás conocer a un pokémon nuevo. Podrás revisar la lista completa de pokémon de Kanto y ordenarlos y filtrarlos a tu gusto. 
+              <img src="http://img09.deviantart.net/d3f1/i/2013/017/c/0/the_kanto_starters_by_tails19950-d5rt4zf.png" alt="imagenDePokemon">
+              <br>La pokeguía fue diseñada para acopañarte en tu aventura con Pokémon GO. Cada día podrás conocer a un pokémon nuevo. Podrás revisar la lista completa de pokémon de Kanto y ordenarlos y filtrarlos a tu gusto. 
             </section>
-           
           </main>
 <!-- FOOTER -->
             <footer>&copy;¡Bienvenida! PokeGuía de Lucie y Nathalie, Febrero 2019</footer>
           <script src="./data/pokemon/pokemon.js"></script>
           <script src="data.js"></script>
           <script src="main.js"></script>
+        
   </body>
 </html>

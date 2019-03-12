@@ -27,7 +27,6 @@ sortData: function (data, sortBy, sortOrder){
     }
   return 0;
   });
- 
   return pokemonOrder;
   }else if(sortOrder==="descendente"){
     pokemonOrder=data.sort(function(ob1,ob2){
@@ -44,9 +43,11 @@ sortData: function (data, sortBy, sortOrder){
 
 computeStats: function(data, condition){
   let filterData=[];
-  data.forEach(pokemon=>((filterData.push (pokemon[condition]))));
+  data.forEach(pokemon=>(filterData.push (pokemon[condition])));
   let average = filterData.reduce(function(a, b){ return a + b; });
   average=average/filterData.length;
   return average;
-   }
+   },
+   
 };
+
