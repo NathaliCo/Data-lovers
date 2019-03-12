@@ -29,6 +29,7 @@
  .menu {
   position: relative;
   text-decoration: none;
+
   
 }
 .menu nav {
@@ -65,7 +66,8 @@
   vertical-align: middle;
 }
 @media only screen and (max-width: 768px) {
-  .menu {background:black;}
+  .menu {background:black;
+}
   .menu .drop {display: inline-block;}/*volvemos a mostrar el botón*/
   .menu nav {/*ahora nuestro menú es una lista flotante*/
       position: absolute;
@@ -80,6 +82,7 @@
       float: none;
       border: 0 none;
   }
+
 }
 .menu input {display: none}/*ocultamos el input*/
 #toggle:checked ~ nav{
@@ -88,6 +91,7 @@
 #toggle:checked ~ label{
     background: rgba(0,0,0,0.65);
 }
+
 
 /*socialBar*/
 .socialBar {
