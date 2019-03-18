@@ -54,15 +54,20 @@ function searchButton(){
 document.getElementById("search").addEventListener("click", searchButton);
 
 function printFirstData (pokemon){
- 
   colorChange= document.getElementById("name");
   colorChange.setAttribute("class", pokemon.Tipo[0]);
    document.getElementById("name").innerHTML = pokemon.Nombre;
    document.getElementById("picture").src = pokemon.Imagen;
-   let text;
    const caracteristics= document.getElementById("caracteristics");
-   for (let property in pokemon){
+  
+   printCaracteristics(pokemon, caracteristics); 
+}
+function printCaracteristics(pokemon, caracteristics){
+
+   let text;
+  for (let property in pokemon){
     let span = document.createElement("span");
+    
       if (property==="Imagen" || property==="Nombre" || typeof pokemon[property] == "undefined"){
         console.log("done");
        }else if (property === "Próxima_evolución" || property === "Evolución_anterior" ) {
@@ -75,7 +80,7 @@ function printFirstData (pokemon){
       span.appendChild(text);
     caracteristics.appendChild(span);
     caracteristics.innerHTML+= "<br>";
-      }
+      }    
 }   
 }
 
@@ -113,24 +118,51 @@ document.getElementById("filterSearch").addEventListener("click",  printOrderLis
 
 //Función para imprimir la lista de pokemones total y por tipo
 function table(data){
-  document.getElementById("graphics").style.display="none";
+  document.getElementById("caracteristics").innerHTML="";
   const paragraph= document.getElementById("results");
+  let pokemonBtn= [];
   paragraph.innerHTML=" ";
     for (let i=0; i<data.length; i++){
+      const btn= document.createElement("button");
+      btn.type= "button";
       const span=document.createElement("span");
       const label = document.createElement("label");
       const image = document.createElement ("img");
       const num =document.createTextNode (data[i].num+ " ");
-      const name = document.createTextNode (data[i].name);
+      const name = document.createTextNode(data[i].name);
       label.appendChild(num);
       label.appendChild(name);
       span.appendChild(label);
       paragraph.appendChild(span);
       image.src= data[i].img;
       span.appendChild(image);
-      paragraph.appendChild(span);
+      btn.appendChild(span);
+      paragraph.appendChild(btn);
+      btn.setAttribute("id", data[i].name);
+      btn.setAttribute("data-target", "#myModal"); 
+      btn.setAttribute("data-toggle", "modal");
+      btn.setAttribute("class", "btn btn-info btn-lg" )
+      btn.setAttribute("type", "button");
+      pokemonBtn.push(btn); 
+
     }
-  }
+
+   for(let i = 0; i < pokemonBtn.length ; i++) {
+     document.querySelector(".modal-body"). innerHTML="";
+    pokemonBtn[i].addEventListener("click", ()=>{
+      document.querySelector(".modal-body"). innerHTML="";
+     
+      let pokemon=pokemonBtn[i].getAttribute('id')
+      pokemon=dataLovers.findPokemon (translateData, pokemon);
+
+      document.querySelector(".modal-title").innerHTML=pokemon.Nombre;
+      const  caracteristics= document.querySelector(".modal-body");
+      printCaracteristics(pokemon, caracteristics);
+      // document.querySelector(".caracteristicsModal").innerHTML = pokemon;
+    });
+ }
+}
+
 //Función para ir a la pantalla de inicio  
 function start() {
   location.reload();

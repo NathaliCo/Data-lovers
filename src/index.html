@@ -4,12 +4,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
       <title>Pokeguía</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="style.css"/>
       <link rel="stylesheet" href="font.css"/>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
        <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-     
+      
       </head>
         <body>
         <div class="socialBar">
@@ -95,6 +98,7 @@
               <button class = "typeButton" id = "Ground">Tierra</button>
               <button class = "typeButton" id = "Poison">Veneno </button>
               <button class = "typeButton" id = "Flying">Volador </button>
+          
            </div>
               </section>
 <!-- PANTALLA estadísticas -->
@@ -124,6 +128,27 @@
             
               <div id= "graphics"></div>
              
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                      </div>
+                      <div class="modal-body caracteristicsModal">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+              </div>
+              
             <section id="usAbout">
               <img src="http://img09.deviantart.net/d3f1/i/2013/017/c/0/the_kanto_starters_by_tails19950-d5rt4zf.png" alt="imagenDePokemon">
               <br>La pokeguía fue diseñada para acopañarte en tu aventura con Pokémon GO. Cada día podrás conocer a un pokémon nuevo y un dato interesante sobre la creación de los pokemon. Podrás revisar la lista completa de pokémon de Kanto y ordenarlos, filtrarlos y conocer estadísticas útiles para mejorar tu juego.
