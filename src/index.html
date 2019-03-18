@@ -4,6 +4,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
       <title>Pokeguía</title>
+      
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+       <!-- <link rel="stylesheet" href="/resources/demos/style.css">  -->
+      <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -28,14 +33,17 @@
 <!-- HEADER con un NAV que contiene el botón de búsqueda -->
           <header>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png" alt="">
-            <div class="search-box">
-              <input class="search-txt" id="searchPokemon"  type="text" placeholder="Buscar">
+            <div class="search-box ui-widget">
+              <input class="search-txt " id="tags"  type="text" placeholder="Buscar">
               <a class= "search-btn" id="search" href="#" > 
                 <i class="fas fa-search"></i> </a>
             </div>
           </header>
+          <div id="dialog">
+              <p>OPS, Escribe el nombre de un pokémon perteneciente a la primera generación de kanto o revisa el apartado 'Lista' </p>
+            </div>
   <!-- MAIN página que muestra todas las pantallas -->
-          <main class="wrapper">
+          <main >
               <div class="menu">
                   <input id="toggle" type="checkbox"/>
                   <label for="toggle" class="drop">
@@ -124,7 +132,7 @@
              <button id="statisticSearch">Calcular</button>
              <button id= "charts">Ver gráfica</button>
             </section>
-            <section id="results"></section>
+            <div id="results"></div>
             
               <div id= "graphics"></div>
              
@@ -139,11 +147,7 @@
                       </div>
                       <div class="modal-body caracteristicsModal">
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
                     </div>
-                    
                   </div>
                 </div>
                 
@@ -156,9 +160,14 @@
           </main>
 <!-- FOOTER -->
           <footer>&copy;¡Bienvenida! PokeGuía de Lucie y Nathalie, Febrero 2019</footer> 
+          <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+          <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
           <script src="./data/pokemon/pokemon.js"></script>
           <script src="data.js"></script>
           <script src="main.js"></script>
+          
         
   </body>
 </html>

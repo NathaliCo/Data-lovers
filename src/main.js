@@ -7,6 +7,7 @@ const translateData = newData.map( item => {
   return { Id: item.id, Número: item.num, Nombre: item.name, Imagen:item.img, Tipo: item.type , Altura : item.height, Peso: item.weight, Dulces: item.candy, Número_de_dulces: item.candy_count, Huevos: item.egg, Probabilidades_de_aparición: item.spawn_chance,  Hora_más_activa_de_apariciones: item.spawn_time, Próxima_evolución: item.next_evolution, Evolución_anterior: item.prev_evolution}; 
 });
 
+
 //Función para generar random
  let random= function (data){
     let randomId= Math.floor(((Math.random()*data.length)+1));
@@ -35,21 +36,29 @@ window.onload= init ();
 document.getElementById("pokemonList").style.display="none";
 document.getElementById("statisticsList").style.display="none";
 document.getElementById("usAbout").style.display="none";
-
+function openAlert(){
+  $( function() {
+    $( "#dialog" ).dialog();
+  } );
+}
 
 //Función del boton de buscar
 function searchButton(){  
-  document.getElementById("caracteristics").innerHTML= "";
-    let pokemon=dataLovers.findPokemon(translateData, document.getElementById("searchPokemon").value);
+    let pokemon=dataLovers.findPokemon(translateData, document.getElementById("tags").value);
+    if (pokemon == undefined){
+      document.getElementById("tags").value = "";
+      openAlert();
+    }else {
+    document.getElementById("caracteristics").innerHTML= "";
     printFirstData(pokemon);
-    document.getElementById("searchPokemon").value = "";
+    document.getElementById("tags").value = "";
     document.getElementById("pokemonOfTheDay").style.display="block";
     document.getElementById("pokemonList").style.display="none";
     document.getElementById("statisticsList").style.display="none";
     document.getElementById("usAbout").style.display="none";
-   
-    document.getElementById("results").style.display="none";
+    document.getElementById("results").innerHTML="";
     document.getElementById("graphics").style.display="none";
+    }
 }
 document.getElementById("search").addEventListener("click", searchButton);
 
@@ -100,7 +109,7 @@ for(let i = 0; i < typeButtons.length ; i++) {
 function menuList(){
  
   document.getElementById("usAbout").style.display="none";
-  document.getElementById("results").innerHTML=" ";
+  // document.getElementById("results").innerHTML=" ";
   document.getElementById("pokemonList").style.display="block";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("statisticsList").style.display="none";
@@ -119,6 +128,7 @@ document.getElementById("filterSearch").addEventListener("click",  printOrderLis
 //Función para imprimir la lista de pokemones total y por tipo
 function table(data){
   document.getElementById("caracteristics").innerHTML="";
+  // document.getElementById("reults").style.display="block";
   const paragraph= document.getElementById("results");
   let pokemonBtn= [];
   paragraph.innerHTML=" ";
@@ -133,7 +143,6 @@ function table(data){
       label.appendChild(num);
       label.appendChild(name);
       span.appendChild(label);
-      paragraph.appendChild(span);
       image.src= data[i].img;
       span.appendChild(image);
       btn.appendChild(span);
@@ -192,7 +201,7 @@ document.getElementById("statisticSearch").addEventListener("click", statisticSe
 
 function aboutUs(){
   document.getElementById("graphics").style.display="none";
-  document.getElementById("searchPokemon").value = "";
+  document.getElementById("tags").value = "";
   document.getElementById("pokemonOfTheDay").style.display="none";
   document.getElementById("pokemonList").style.display="none";
   document.getElementById("statisticsList").style.display="none";
@@ -264,16 +273,32 @@ function drawChart() {
 }
 
 document.getElementById("charts").addEventListener("click", graficas);
-document.getElementById("searchPokemon").addEventListener('keypress', logKey);
+document.getElementById("tags").addEventListener('keypress', logKey);
 
 function logKey(e) {
   key = (document.all) ? e.keyCode : e.which;
   if (key==13) searchButton();
 }
 
+let availableTags=nameArray(newData);
 
+function nameArray(data){
+  let namesArray= [];
+  data.forEach(element => {
+    namesArray.push(element.name);
+    
+  });
+ return namesArray;
+}
+
+
+$( function() {
+  availableTags;
+  $( "#tags" ).autocomplete({
+    source: availableTags
+  });
+} );
 });
-
 
   const FACTS= {
     "facts": ["La palabra pokémon es la contracción de pocket monsters, o sea, monstruos de bolsillo en inglés. En español puede llevar acento y variar en plural, según la RAE (los pokémones, pero también es correcto dejarlo en los pokémon), y lo mismo sucede con cada especie (como los pikachus, los bulbasaurs, etc.). Pero en inglés y japonés no cambia ni la palabra pokémon ni cada tipo.","El concepto de la franquicia está basado en la afición a coleccionar insectos que de pequeño tenía el productor ejecutivo del universo Pokémon, Satoshi Tajiri. Así, incluye videojuegos (el producto original) pero también una serie animada, películas, un juego de cartas, juegos de mesa, un parque de atracciones itinerante y hasta un musical.",
@@ -299,3 +324,4 @@ function logKey(e) {
   "Tras el arrollador éxito de Pokémon Go, Hollywood ha sacado la cartera para hacerse con los derechos de la franquicia y rodar una película en imagen real de los monstruitos. Tienen seria competencia, ya que la productora en cabeza no es estadounidense sino propiedad del conglomerado chino Wanda. Se trata de Legendary, responsable de la adaptación al cine de Warcraft."]
   };
   
+ 
