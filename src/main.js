@@ -1,7 +1,6 @@
 fetch('https://raw.githubusercontent.com/Nathalis/curricula-js/master/projects/02-data-lovers/src/data/pokemon/pokemon.json')
     .then(res => res.json())
     .then(newData => {
-
         newData = newData.pokemon;
         const translateData = newData.map(item => {
             return { Id: item.id, Número: item.num, Nombre: item.name, Imagen: item.img, Tipo: item.type, Altura: item.height, Peso: item.weight, Dulces: item.candy, Número_de_dulces: item.candy_count, Huevos: item.egg, Probabilidades_de_aparición: item.spawn_chance, Hora_más_activa_de_apariciones: item.spawn_time, Próxima_evolución: item.next_evolution, Evolución_anterior: item.prev_evolution };
@@ -79,9 +78,7 @@ fetch('https://raw.githubusercontent.com/Nathalis/curricula-js/master/projects/0
             for (let property in pokemon) {
                 let span = document.createElement("span");
 
-                if (property === "Imagen" || property === "Nombre" || typeof pokemon[property] == "undefined") {
-                    console.log("done");
-                } else if (property === "Próxima_evolución" || property === "Evolución_anterior") {
+                if (property === "Imagen" || property === "Nombre" || typeof pokemon[property] == "undefined") {} else if (property === "Próxima_evolución" || property === "Evolución_anterior") {
                     text = document.createTextNode(property + ": " + pokemon[property][0].name);
                     span.appendChild(text);
                     caracteristics.appendChild(span);
@@ -100,18 +97,19 @@ fetch('https://raw.githubusercontent.com/Nathalis/curricula-js/master/projects/0
         //función para buscar e imprimir en pantalla los pokemon por tipo
         let typeButtons = Array.from(document.getElementsByClassName("typeButton"));
 
-        for (let i = 0; i < typeButtons.length; i++) {
-            typeButtons[i].addEventListener("click", () => {
-                let filterProperties = dataLovers.filterType(newData, typeButtons[i].getAttribute('id'));
+        typeButtons.forEach(element => {
+            element.addEventListener("click", () => {
+                let filterProperties = dataLovers.filterType(newData, element.getAttribute('id'));
                 table(filterProperties);
             });
-        }
+        });
+
+
 
         //Función para mostrar la pantalla con la lista completa de pokemones
         function menuList() {
 
             document.getElementById("usAbout").style.display = "none";
-            // document.getElementById("results").innerHTML=" ";
             document.getElementById("pokemonList").style.display = "block";
             document.getElementById("pokemonOfTheDay").style.display = "none";
             document.getElementById("statisticsList").style.display = "none";
@@ -131,48 +129,49 @@ fetch('https://raw.githubusercontent.com/Nathalis/curricula-js/master/projects/0
         //Función para imprimir la lista de pokemones total y por tipo
         function table(data) {
             document.getElementById("caracteristics").innerHTML = "";
-            // document.getElementById("reults").style.display="block";
             const paragraph = document.getElementById("results");
             let pokemonBtn = [];
             paragraph.innerHTML = " ";
-            for (let i = 0; i < data.length; i++) {
+            data.forEach(element => {
+
                 const btn = document.createElement("button");
                 btn.type = "button";
                 const span = document.createElement("span");
                 const label = document.createElement("label");
                 const image = document.createElement("img");
-                const num = document.createTextNode(data[i].num + " ");
-                const name = document.createTextNode(data[i].name);
+                const num = document.createTextNode(element.num + " ");
+                const name = document.createTextNode(element.name);
                 label.appendChild(num);
                 label.appendChild(name);
                 span.appendChild(label);
-                image.src = data[i].img;
+                image.src = element.img;
                 span.appendChild(image);
                 btn.appendChild(span);
                 paragraph.appendChild(btn);
-                btn.setAttribute("id", data[i].name);
+                btn.setAttribute("id", element.name);
                 btn.setAttribute("data-target", "#myModal");
                 btn.setAttribute("data-toggle", "modal");
                 btn.setAttribute("class", "btn btn-info btn-lg")
                 btn.setAttribute("type", "button");
                 pokemonBtn.push(btn);
 
-            }
 
-            for (let i = 0; i < pokemonBtn.length; i++) {
+
+
+            });
+
+            pokemonBtn.forEach(element => {
                 document.querySelector(".modal-body").innerHTML = "";
-                pokemonBtn[i].addEventListener("click", () => {
+                element.addEventListener("click", () => {
                     document.querySelector(".modal-body").innerHTML = "";
-
-                    let pokemon = pokemonBtn[i].getAttribute('id')
+                    let pokemon = element.getAttribute('id')
                     pokemon = dataLovers.findPokemon(translateData, pokemon);
-
                     document.querySelector(".modal-title").innerHTML = pokemon.Nombre;
                     const caracteristics = document.querySelector(".modal-body");
                     printCaracteristics(pokemon, caracteristics);
-                    // document.querySelector(".caracteristicsModal").innerHTML = pokemon;
                 });
-            }
+            });
+
         }
 
         //Función para ir a la pantalla de inicio  
@@ -213,23 +212,6 @@ fetch('https://raw.githubusercontent.com/Nathalis/curricula-js/master/projects/0
         }
 
         document.getElementById("aboutUs").addEventListener("click", aboutUs);
-
-        /*function graphicData (){
-  let total;
-  for (let i=0; i<typeButtons.length; i++){
-      total=0;
-      let condition = typeButtons[i].getAttribute('id');
-      console.log(condition);
-      let filterProperties= dataLovers.filterType (newData, condition);
-      console.log (filterProperties);
-      filterProperties.forEach(pokemon =>(total+= (pokemon.spawn_chance)));
-      total=total/filterProperties.length;
-      console.log (total);
-  }
-  console.log (total);
-}
-
-document.getElementById("graphics").addEventListener("click", graphicData);*/
 
         function graphicDatas(condition) {
             let total = 0;
@@ -295,7 +277,6 @@ document.getElementById("graphics").addEventListener("click", graphicData);*/
             });
             return namesArray;
         }
-
 
         $(function() {
             availableTags;
