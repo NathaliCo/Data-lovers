@@ -1,98 +1,112 @@
 <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-      <title>Pokeguía</title>
-      <link rel="stylesheet" href="style.css"/>
-      <link rel="stylesheet" href="font.css"/>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-       <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
-     
-      </head>
-        <body>
-        <div class="socialBar">
-         <ul>
-              <li><a href="https://www.facebook.com/" target="_blanck" class ="icon-facebook2"></a></li>
-              <li><a href="http://www.twitter.com/" target="_blanck" class ="icon-twitter"></a></li>
-              <li><a href="https://www.instagram.com/?hl=es-la" target="_blanck" class ="icon-instagram"></a></li>
-              <li><a href="https://www.hotmail.com" target="_blanck" class ="icon-mail4"></a></li>
+<html lang="es">
 
-          </ul>
-        
-        </div>
-<!-- HEADER con un NAV que contiene el botón de búsqueda -->
-          <header>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png" alt="">
-            <div class="search-box">
-              <input class="search-txt" id="searchPokemon" onkeypress="keypress(event)" type="text" placeholder="Buscar">
-              <a class= "search-btn" id="search" href="#" > 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Pokeguía</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css">  -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <nav class="socialBar">
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/" target="_blanck" class="icon-facebook2"></a>
+            </li>
+            <li>
+                <a href="http://www.twitter.com/" target="_blanck" class="icon-twitter"></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/?hl=es-la" target="_blanck" class="icon-instagram"></a>
+            </li>
+            <li>
+                <a href="https://www.hotmail.com" target="_blanck" class="icon-mail4"></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- HEADER con un NAV que contiene el botón de búsqueda -->
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png" alt="">
+        <div class="search-box ui-widget">
+            <input class="search-txt " id="tags" type="text" placeholder="Buscar">
+            <a class="search-btn" id="search" href="#">
                 <i class="fas fa-search"></i> </a>
-            </div>
-          </header>
-  <!-- MAIN página que muestra todas las pantallas -->
-          <main class="wrapper">
-              <div class="menu">
-                  <input id="toggle" type="checkbox"/>
-                  <label for="toggle" class="drop">
-                     <svg width="36px" height="36px" ><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
-                  </label >
-                  <nav>
-                     <a id="start" href="#">Inicio</a>
-                     <a class= "pokemonList" id="list" href="#">Ver lista</a>
-                     <a id="statistics" href="#">Estadísticas</a>
-                     <a id="aboutUs" href="#">Acerca de</a>
-                     <a id="aboutPokemonGO" href="https://es.wikipedia.org/wiki/Pok%C3%A9mon_GO" target="_blanck">Más sobre pokemonGO</a>
-                  </nav>  
-               </div>
-  
+        </div>
+    </header>
+    <div id="dialog">
+        <p>OPS, Escribe el nombre de un pokémon perteneciente a la primera generación de kanto o revisa el apartado 'Lista' </p>
+    </div>
+    <!-- Menu -->
+    <div class="menu">
+        <input id="toggle" type="checkbox" />
+        <label for="toggle" class="drop">
+               <svg width="36px" height="36px" ><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
+            </label >
+            <nav>
+               <a id="start" href="#">Inicio</a>
+               <a class= "pokemonList" id="list" href="#">Ver lista</a>
+               <a id="statistics" href="#">Estadísticas</a>
+               <a id="aboutUs" href="#">Acerca de</a>
+               <a id="aboutPokemonGO" href="https://es.wikipedia.org/wiki/Pok%C3%A9mon_GO" target="_blanck">Más sobre pokemonGO</a>
+            </nav>  
+         </div>
+    <!-- MAIN página que muestra todas las pantallas -->
+    <main>
   <!--CONTAINER POKEMON OF THE DAY -->
-              <section class="pokeBox" id="pokemonOfTheDay"> <h2>Pokémon del día </h2>
+              <section class="pokeBox" id="pokemonOfTheDay"> <h1>Pokémon del día </h1>
                 <div class="container">
-                  <div class="front">
-                  <img id = "picture" src="#" alt="pokemon"><br>
-                  <span id="name"></span>  <br>
+                  <div id = "front">
+                    <img id = "picture" src="#" alt="pokemon">
+                  <div id="name"></div>  
                 </div>
-                  <div class="back">
-                                  
+                  <div id="back">              
                 <div id="caracteristics"></div>
               </div>
               </div>
                 <button id ="random">Conocer otro pokémon</button>
-                <br><br><br><h2>¿Sabias qué?</h2>
+                <h2>¿Sabias qué?</h2>
                 <p id="pokemonFacts"></p>
               </section>
 <!-- PANTALLA lista de pokémon -->
             <section class="grid" id="pokemonList"><h2>Ordenar lista de pokémon</h2>
-              
               <select id="listFor">
                 <option value="name">Alfabéticamente</option>
                 <option value="id">Por id</option>
               </select>
-            
                <select id="listOrder">
                   <option value="ascendente">Ascendente</option>
                   <option value="descendente">Descendente</option>
                </select>
-              
                <button id="filterSearch">Ordenar</button>
             <!--Tipos de pokémon -->
             <div id="pokemonTypes"><h2>Filtrar lista de pokémon según su tipo</h2>
-              <button class = "typeButton" id = "Fire" > Fuego </button>
               <button class = "typeButton" id = "Water">Agua </button>
-              <button class = "typeButton" id = "Poison">Veneno </button>
-              <button class = "typeButton" id = "Normal">Normal</button>
-              <button class = "typeButton" id = "Grass"> Planta </button>
-              <button class = "typeButton" id = "Electric">Eléctrico </button>
-              <button class = "typeButton" id = "Ice">Hielo </button>
-              <button class = "typeButton" id = "Fighting">Peleador</button>
-              <button class = "typeButton" id = "Ground">Tierra</button>
-              <button class = "typeButton" id = "Flying">Volador </button>
-              <button class = "typeButton" id = "Psychic">Psíquico</button>
-              <button class = "typeButton" id = "Bug"> Insecto </button>
-              <button class = "typeButton" id = "Rock"> Roca </button>
               <button class = "typeButton" id = "Dragon">Dragón </button>
+              <button class = "typeButton" id = "Electric">Eléctrico </button>
+              <button class = "typeButton" id = "Fire" > Fuego </button>
               <button class = "typeButton" id = "Ghost">Fantasma </button>
+              <button class = "typeButton" id = "Ice">Hielo </button>
+              <button class = "typeButton" id = "Bug"> Insecto </button>
+              <button class = "typeButton" id = "Normal">Normal</button>
+              <button class = "typeButton" id = "Fighting">Peleador</button>
+              <button class = "typeButton" id = "Grass"> Planta </button>
+              <button class = "typeButton" id = "Psychic">Psíquico</button>
+              <button class = "typeButton" id = "Rock"> Roca </button>
+              <button class = "typeButton" id = "Ground">Tierra</button>
+              <button class = "typeButton" id = "Poison">Veneno </button>
+              <button class = "typeButton" id = "Flying">Volador </button>
            </div>
               </section>
 <!-- PANTALLA estadísticas -->
@@ -116,15 +130,37 @@
                 <option value = "Ghost">Fantasma </option>
              </select>
              <button id="statisticSearch">Calcular</button>
+             <button id= "charts">Ver gráfica</button>
+             <p id = "statisticsResult"></p>
+             <div id= "graphics"></div>
             </section>
-            <section id="results"></section>
+            <div id="results"></div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                      </div>
+                      <div class="modal-body caracteristicsModal">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <section id="usAbout">
-              La pokeguía fue diseñada para acopañarte en tu aventura con Pokémon GO. Cada día podrás conocer a un pokémon nuevo. Podrás revisar la lista completa de pokémon de Kanto y ordenarlos y filtrarlos a tu gusto. 
+              <img src="http://img09.deviantart.net/d3f1/i/2013/017/c/0/the_kanto_starters_by_tails19950-d5rt4zf.png" alt="imagenDePokemon">
+              <br>La pokeguía fue diseñada para acopañarte en tu aventura con Pokémon GO. Cada día podrás conocer a un pokémon nuevo y un dato interesante sobre la creación de los pokemon. Podrás revisar la lista completa de pokémon de Kanto y ordenarlos, filtrarlos y conocer estadísticas útiles para mejorar tu juego.
             </section>
-           
           </main>
 <!-- FOOTER -->
-            <footer>&copy;¡Bienvenida! PokeGuía de Lucie y Nathalie, Febrero 2019</footer>
+          <footer>&copy;¡Bienvenida! PokeGuía de Lucie y Nathalie, Febrero 2019</footer> 
+          <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+          <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
           <script src="./data/pokemon/pokemon.js"></script>
           <script src="data.js"></script>
           <script src="main.js"></script>
