@@ -256,6 +256,7 @@ footer {
     width: 100%;
     height: auto;
     bottom: 0%;
+    z-index: 2000;
 }
 
 .clearfix::after {
